@@ -6,7 +6,7 @@ const products = [
     price: 950,
     oldPrice: 1100,
     discount: "15%",
-    img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300",
+    img: "",
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const products = [
     price: 1450,
     oldPrice: 1600,
     discount: "10%",
-    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300",
+    img: "",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const products = [
     price: 1800,
     oldPrice: 2000,
     discount: "10%",
-    img: "https://images.unsplash.com/photo-1601049676093-d45e2283f49d?w=300",
+    img: "",
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const products = [
     price: 1250,
     oldPrice: 1550,
     discount: "20%",
-    img: "https://images.unsplash.com/photo-1617897903246-719242758050?w=300",
+    img: "",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const products = [
     price: 850,
     oldPrice: 1000,
     discount: "15%",
-    img: "https://images.unsplash.com/photo-1556229162-5c63ed9c4ffb?w=300",
+    img: "",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const products = [
     price: 1100,
     oldPrice: 1350,
     discount: "18%",
-    img: "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=300",
+    img: "",
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const products = [
     price: 1950,
     oldPrice: 2200,
     discount: "11%",
-    img: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=300",
+    img: "",
   },
   {
     id: 8,
@@ -62,7 +62,7 @@ const products = [
     price: 2100,
     oldPrice: 2600,
     discount: "20%",
-    img: "https://images.unsplash.com/photo-1590156221122-c748e78f2a7a?w=300",
+    img: "",
   },
   {
     id: 9,
@@ -70,7 +70,7 @@ const products = [
     price: 1650,
     oldPrice: 1850,
     discount: "10%",
-    img: "https://images.unsplash.com/photo-1599305090598-fe179d501227?w=300",
+    img: "",
   },
   {
     id: 10,
@@ -78,7 +78,7 @@ const products = [
     price: 750,
     oldPrice: 950,
     discount: "21%",
-    img: "https://images.unsplash.com/photo-1608248543719-270f9076d296?w=300",
+    img: "",
   },
   {
     id: 11,
@@ -86,7 +86,7 @@ const products = [
     price: 1350,
     oldPrice: 1600,
     discount: "15%",
-    img: "https://images.unsplash.com/photo-1556228852-6d35a585d566?w=300",
+    img: "",
   },
   {
     id: 12,
@@ -94,58 +94,78 @@ const products = [
     price: 3500,
     oldPrice: 4200,
     discount: "16%",
-    img: "https://images.unsplash.com/photo-1601612628452-9e99ced43524?w=300",
+    img: "",
   },
 ];
 
-const productGrid = document.getElementById("productGrid");
-const cartBadge = document.getElementById("cartBadge");
-const searchInput = document.getElementById("productSearch");
-const sortSelect = document.getElementById("sortPrice");
 let cartCount = 0;
 
-// প্রোডাক্ট রেন্ডার করার মূল ফাংশন
+// প্রোডাক্ট রেন্ডার করার ফাংশন
 function renderProducts(data) {
+  const productGrid = document.getElementById("productGrid");
+  const searchInput = document.getElementById("productSearch");
+
+  if (!productGrid) return;
   productGrid.innerHTML = "";
+
   if (data.length === 0) {
-    productGrid.innerHTML =
-      "<p style='grid-column: 1/-1; text-align: center;'>কোনো পণ্য খুঁজে পাওয়া যায়নি।</p>";
+    productGrid.innerHTML = `<p style='grid-column: 1/-1; text-align: center; padding: 50px; color: #888;'>দুঃখিত, "${searchInput.value}" নামে কোনো পণ্য খুঁজে পাওয়া যায়নি।</p>`;
     return;
   }
 
   data.forEach((product) => {
     const card = document.createElement("div");
     card.className = "product-card";
-    const discountTag = product.discount
-      ? `<div class="discount-badge">-${product.discount}</div>`
-      : "";
 
     card.innerHTML = `
-            ${discountTag}
-            <img src="${product.img}" alt="${product.name}">
+            <div class="discount-badge">-${product.discount}</div>
+            <div class="product-img-wrapper">
+                <img src="${product.img}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/200x200?text=Beauty+Source'">
+            </div>
             <h3>${product.name}</h3>
             <div class="price-container">
                 <span class="old-price">৳ ${product.oldPrice}</span>
                 <span class="price">৳ ${product.price}</span>
             </div>
-            <button class="add-to-cart" onclick="addToCart(${product.id})">Add to Bag</button>
+            <button class="add-to-cart" onclick="addToCart(${product.id}, this)">
+                <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+            </button>
         `;
     productGrid.appendChild(card);
   });
 }
 
-// কার্ট আপডেট
-window.addToCart = function (id) {
+// কার্ট ফাংশন (গ্লোবাল উইন্ডোতে রাখা হয়েছে যাতে HTML থেকে এক্সেস পায়)
+window.addToCart = function (id, btnElement) {
+  const cartBadge = document.getElementById("cartBadge");
   cartCount++;
   cartBadge.innerText = cartCount;
-  cartBadge.style.transform = "scale(1.5)";
-  setTimeout(() => (cartBadge.style.transform = "scale(1)"), 200);
+
+  // এনিমেশন ইফেক্ট
+  cartBadge.style.transition = "transform 0.3s ease";
+  cartBadge.style.transform = "scale(1.4) rotate(10deg)";
+
+  const originalText = btnElement.innerHTML;
+  btnElement.innerHTML = `<i class="fa-solid fa-check"></i> Added`;
+  btnElement.style.backgroundColor = "#4CAF50";
+  btnElement.style.color = "white";
+
+  setTimeout(() => {
+    cartBadge.style.transform = "scale(1) rotate(0deg)";
+    btnElement.innerHTML = originalText;
+    btnElement.style.backgroundColor = "";
+    btnElement.style.color = "";
+  }, 1000);
 };
 
-// সার্চ এবং সর্টিং হ্যান্ডেল করার ফাংশন
+// ফিল্টার এবং সর্ট ফাংশন
 function handleFilterAndSort() {
+  const searchInput = document.getElementById("productSearch");
+  const sortSelect = document.getElementById("sortPrice");
+
+  const searchTerm = searchInput.value.toLowerCase();
   let filteredProducts = products.filter((p) =>
-    p.name.toLowerCase().includes(searchInput.value.toLowerCase()),
+    p.name.toLowerCase().includes(searchTerm),
   );
 
   const sortValue = sortSelect.value;
@@ -158,16 +178,13 @@ function handleFilterAndSort() {
   renderProducts(filteredProducts);
 }
 
-// ইভেন্ট লিসেনার যুক্ত করা
-if (searchInput) {
-  searchInput.addEventListener("input", handleFilterAndSort);
-}
-
-if (sortSelect) {
-  sortSelect.addEventListener("change", handleFilterAndSort);
-}
-
-// ইনিশিয়াল লোড
+// ইনিশিয়াল লোড এবং ইভেন্ট লিসেনার
 document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("productSearch");
+  const sortSelect = document.getElementById("sortPrice");
+
+  if (searchInput) searchInput.addEventListener("input", handleFilterAndSort);
+  if (sortSelect) sortSelect.addEventListener("change", handleFilterAndSort);
+
   renderProducts(products);
 });

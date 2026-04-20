@@ -18,9 +18,9 @@
           <input
             type="text"
             id="productSearch"
-            placeholder="Search for products (e.g. Serum, Cream)..."
+            placeholder="পছন্দের প্রোডাক্ট খুঁজুন (যেমন: Serum, Cream)..."
           />
-          <button><i class="fa fa-search"></i></button>
+          <button aria-label="Search"><i class="fa fa-search"></i></button>
         </div>
         <div class="user-actions">
           <div class="action-item">
@@ -53,32 +53,53 @@
       <div
         class="slide active"
         style="
-          background-image: url(&quot;https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&quot;);
+          background-image:
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url(&quot;image/beauty image.jpg&quot;);
         "
       >
         <div class="slide-content">
-          <h2>ঈদ ধামাকা অফার!</h2>
+          <span class="badge">নতুন কালেকশন ২০২৬</span>
+          <h2>আপনার সৌন্দর্যের বিশ্বস্ত সঙ্গী</h2>
           <p>
-            ২০১৮ সাল থেকে আপনাদের সেবায় নিয়োজিত <strong>Beauty Source</strong>
+            ২০১৮ সাল থেকে আপনাদের সেবায় নিয়োজিত
+            <strong>Beauty Source</strong>। আসল পণ্যের নিশ্চয়তা।
           </p>
-          <button class="cta-btn">Shop Now</button>
+          <button class="cta-btn">
+            Shop Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
+      </div>
+    </section>
+
+    <section class="features-bar">
+      <div class="feature-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>দ্রুত ডেলিভারি</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <span>১০০% অরিজিনাল</span>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-rotate-left"></i>
+        <span>সহজ রিটার্ন</span>
       </div>
     </section>
 
     <section class="ad-banner-container">
       <div class="ad-card promo-1">
         <div class="ad-content">
-          <span>Limited Offer</span>
+          <span>সীমিত সময়ের অফার</span>
           <h3>Get Up to 30% OFF</h3>
-          <p>On all Skin Care products</p>
+          <p>সব প্রিমিয়াম স্কিনকেয়ার পণ্যে আকর্ষণীয় ছাড়!</p>
         </div>
       </div>
       <div class="ad-card promo-2">
         <div class="ad-content">
-          <span>New Arrival</span>
-          <h3>Free Delivery</h3>
-          <p>On orders above ৳ 2000</p>
+          <span>সারা বাংলাদেশে</span>
+          <h3>Free Home Delivery</h3>
+          <p>৳ ২০০০-এর বেশি অর্ডারে ফ্রি ডেলিভারি সুবিধা।</p>
         </div>
       </div>
     </section>
@@ -86,11 +107,13 @@
     <main class="container">
       <div class="section-header">
         <h2>Deals You Cannot Miss</h2>
-        <p>সেরা ব্র্যান্ডের সেরা সব অফার</p>
+        <p>সেরা ব্র্যান্ডের ১০০% অরিজিনাল পণ্য সরাসরি আপনার জন্য</p>
       </div>
 
       <div class="filter-container">
-        <label for="sortPrice">Sort By:</label>
+        <label for="sortPrice"
+          ><i class="fa-solid fa-sliders"></i> Sort By:</label
+        >
         <select id="sortPrice">
           <option value="default">Default</option>
           <option value="lowToHigh">Price: Low to High</option>
@@ -104,22 +127,36 @@
     <footer class="footer">
       <div class="footer-top">
         <div class="footer-col">
-          <h3>Beauty Source</h3>
+          <div class="logo white"><span>BEAUTY</span>SOURCE</div>
           <p>প্রতিষ্ঠাতা: তানজিম আহমেদ উৎস</p>
           <p>স্থাপিত: ২০১৮</p>
+          <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
           </ul>
+        </div>
+        <div class="footer-col">
+          <h4>কাস্টমার সাপোর্ট</h4>
+          <p><i class="fa-solid fa-phone"></i> +৮৮০ ১২৩৪ ৫৬৭৮৯০</p>
+          <p><i class="fa-solid fa-envelope"></i> support@beautysource.com</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
-          &copy; 2026 Beauty Source. Designed with ❤️ by Tanzim Ahmed Utsho.
+          &copy; 2026 <span class="brand-pink">Beauty</span>
+          <strong>Source</strong>. All rights reserved.
+          <br />
+          Designed with ❤️ by <strong>Tanzim Ahmed Utsho</strong>.
         </p>
       </div>
     </footer>
