@@ -133,7 +133,7 @@ body {
   cursor: pointer;
 }
 
-/* --- নতুন যুক্ত করা Ad Banners Style --- */
+/* Ad Banners */
 .ad-banner-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -157,7 +157,6 @@ body {
 .ad-card:hover {
   transform: scale(1.02);
 }
-
 .promo-1 {
   background: linear-gradient(45deg, #ff416c, #ff4b2b);
 }
@@ -178,6 +177,38 @@ body {
 .ad-content p {
   font-size: 16px;
   opacity: 0.8;
+}
+
+/* --- নতুন যুক্ত করা Filter Container Style --- */
+.filter-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+  padding: 0 5%;
+}
+
+.filter-container label {
+  font-weight: 600;
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.filter-container select {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  background: var(--white);
+  color: var(--secondary);
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.filter-container select:focus {
+  border-color: var(--primary);
 }
 
 /* Product Grid */
@@ -207,7 +238,6 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* --- নতুন যুক্ত করা Discount Badge Style --- */
 .discount-badge {
   position: absolute;
   top: 15px;
@@ -233,7 +263,6 @@ body {
   overflow: hidden;
 }
 
-/* --- প্রাইস ও ডিসকাউন্ট স্টাইল --- */
 .price-container {
   display: flex;
   justify-content: center;
@@ -247,7 +276,6 @@ body {
   color: #888;
   font-size: 14px;
 }
-
 .price {
   font-size: 18px;
   font-weight: bold;
@@ -290,9 +318,11 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .ad-banner-container {
     grid-template-columns: 1fr;
+  }
+  .filter-container {
+    justify-content: center;
   }
 }

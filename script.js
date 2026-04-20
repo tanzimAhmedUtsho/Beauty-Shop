@@ -1,4 +1,4 @@
-// ১২টি প্রোডাক্টের বর্ধিত ডেটাবেস (ডিসকাউন্ট সহ)
+// ১২টি প্রোডাক্টের ডেটাবেস
 const products = [
   {
     id: 1,
@@ -100,16 +100,22 @@ const products = [
 
 const productGrid = document.getElementById("productGrid");
 const cartBadge = document.getElementById("cartBadge");
+const searchInput = document.getElementById("productSearch");
+const sortSelect = document.getElementById("sortPrice");
 let cartCount = 0;
 
-// প্রোডাক্ট রেন্ডার করার ফাংশন
+// প্রোডাক্ট রেন্ডার করার মূল ফাংশন
 function renderProducts(data) {
   productGrid.innerHTML = "";
+  if (data.length === 0) {
+    productGrid.innerHTML =
+      "<p style='grid-column: 1/-1; text-align: center;'>কোনো পণ্য খুঁজে পাওয়া যায়নি।</p>";
+    return;
+  }
+
   data.forEach((product) => {
     const card = document.createElement("div");
     card.className = "product-card";
-
-    // ডিসকাউন্ট ব্যাজ থাকলে তা দেখানো হবে
     const discountTag = product.discount
       ? `<div class="discount-badge">-${product.discount}</div>`
       : "";
@@ -128,33 +134,40 @@ function renderProducts(data) {
   });
 }
 
-// কার্ট আপডেট (Bag update)
+// কার্ট আপডেট
 window.addToCart = function (id) {
   cartCount++;
   cartBadge.innerText = cartCount;
-
-  // কার্ট ব্যাজ এনিমেশন
-  cartBadge.style.transition = "0.2s";
   cartBadge.style.transform = "scale(1.5)";
   setTimeout(() => (cartBadge.style.transform = "scale(1)"), 200);
-
-  // কনসোলে চেক করার জন্য
-  console.log(`Product ID: ${id} যোগ করা হয়েছে। মোট আইটেম: ${cartCount}`);
 };
 
-// লাইভ সার্চ ফাংশনালিটি
-const searchInput = document.getElementById("productSearch");
-if (searchInput) {
-  searchInput.addEventListener("input", (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const filtered = products.filter((p) =>
-      p.name.toLowerCase().includes(searchTerm),
-    );
-    renderProducts(filtered);
-  });
+// সার্চ এবং সর্টিং হ্যান্ডেল করার ফাংশন
+function handleFilterAndSort() {
+  let filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(searchInput.value.toLowerCase()),
+  );
+
+  const sortValue = sortSelect.value;
+  if (sortValue === "lowToHigh") {
+    filteredProducts.sort((a, b) => a.price - b.price);
+  } else if (sortValue === "highToLow") {
+    filteredProducts.sort((a, b) => b.price - a.price);
+  }
+
+  renderProducts(filteredProducts);
 }
 
-// সাইট লোড হওয়ার সময় সব প্রোডাক্ট দেখানো
+// ইভেন্ট লিসেনার যুক্ত করা
+if (searchInput) {
+  searchInput.addEventListener("input", handleFilterAndSort);
+}
+
+if (sortSelect) {
+  sortSelect.addEventListener("change", handleFilterAndSort);
+}
+
+// ইনিশিয়াল লোড
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(products);
 });
