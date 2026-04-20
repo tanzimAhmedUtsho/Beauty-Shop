@@ -6,7 +6,7 @@ const products = [
     price: 950,
     oldPrice: 1100,
     discount: "15%",
-    img: "",
+    img: "/image/The Body Shop Tea Tree Face Wash.jpg",
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const products = [
     price: 1450,
     oldPrice: 1600,
     discount: "10%",
-    img: "",
+    img: "/image/Neutrogena Hydro Boost Water Gel.jpg",
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const products = [
     price: 1800,
     oldPrice: 2000,
     discount: "10%",
-    img: "",
+    img: "/image/CeraVe Foaming Facial Cleanser.jpg",
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const products = [
     price: 1250,
     oldPrice: 1550,
     discount: "20%",
-    img: "",
+    img: "/image/L'Oreal Paris Revitalift Serum.jpg",
   },
   {
     id: 5,
@@ -38,7 +38,7 @@ const products = [
     price: 850,
     oldPrice: 1000,
     discount: "15%",
-    img: "",
+    img: "/image/Cetaphil Gentle Skin Cleanser.jpg",
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ const products = [
     price: 1100,
     oldPrice: 1350,
     discount: "18%",
-    img: "",
+    img: "/image/Ordinary.webp",
   },
   {
     id: 7,
@@ -54,7 +54,7 @@ const products = [
     price: 1950,
     oldPrice: 2200,
     discount: "11%",
-    img: "",
+    img: "/image/COSRX Snail Mucin Essence.jpg",
   },
   {
     id: 8,
