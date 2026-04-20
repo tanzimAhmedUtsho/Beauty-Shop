@@ -3,18 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beauty Source | তানজিম আহমেদ উৎসব</title>
+    <title>Beauty Source | তানজীম আহমেদ উৎস</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
     />
   </head>
   <body>
+    <div id="overlay" class="overlay" onclick="closeAllPanels()"></div>
+
     <header class="main-header">
       <div class="top-nav">
-        <div class="logo">BEAUTY<span>SOURCE</span></div>
+        <a href="index.html" class="logo-block" aria-label="Beauty Source Home">
+          <div class="logo">BEAUTY<span>SOURCE</span></div>
+          <span class="logo-tagline">Premium beauty picks, delivered fast</span>
+        </a>
+
         <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
           <input
             type="text"
             id="productSearch"
@@ -22,46 +33,91 @@
           />
           <button aria-label="Search"><i class="fa fa-search"></i></button>
         </div>
+
         <div class="user-actions">
-          <div class="action-item">
-            <i class="fa-regular fa-heart"></i><span>Wishlist</span>
+          <div
+            class="action-item wishlist"
+            onclick="togglePanel('wishlistPanel')"
+          >
+            <div class="icon-badge-wrapper">
+              <i class="fa-regular fa-heart"></i>
+              <span class="badge-count" id="wishlistBadge">0</span>
+            </div>
+            <div class="action-copy">
+              <span class="action-label">Wishlist</span>
+              <span class="action-sub">Saved picks</span>
+            </div>
           </div>
-          <div class="action-item">
-            <a
-              href="login page/login.html"
-              style="
-                text-decoration: none;
-                color: inherit;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-              "
-            >
-              <i class="fa-regular fa-user"></i>
-              <span>Login</span>
-            </a>
-          </div>
-          <div class="cart-btn action-item">
-            <i class="fa fa-bag-shopping"></i>
-            <span class="cart-badge" id="cartBadge">0</span>
-            <span>Bag</span>
+
+          <a href="login page/login.html" class="action-item login-link">
+            <i class="fa-regular fa-user"></i>
+            <div class="action-copy">
+              <span class="action-label">Login</span>
+              <span class="action-sub">My account</span>
+            </div>
+          </a>
+
+          <div
+            class="action-item cart-btn"
+            id="openCart"
+            onclick="togglePanel('cartPanel')"
+          >
+            <div class="icon-badge-wrapper">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="badge-count" id="cartBadge">0</span>
+            </div>
+            <div class="cart-text-info">
+              <span class="label">Bag</span>
+              <span class="price-sum">৳০</span>
+            </div>
           </div>
         </div>
       </div>
 
       <nav class="category-nav">
         <ul>
-          <li><a href="/product/mekup.html">Makeup</a></li>
+          <li><a href="product/mekup.html" class="active">Makeup</a></li>
           <li><a href="#">Skin</a></li>
           <li><a href="#">Hair</a></li>
           <li><a href="#">Personal Care</a></li>
-          <li><a href="/product/fragrance.html">Fragrance</a></li>
+          <li><a href="product/fragrance.html">Fragrance</a></li>
           <li class="sale">
-            <a href="/product/clearance.html">Clearance Sale</a>
+            <a href="product/clearance.html">Clearance Sale</a>
           </li>
         </ul>
       </nav>
     </header>
+
+    <aside id="wishlistPanel" class="side-panel">
+      <div class="panel-header">
+        <h3><i class="fa-solid fa-heart"></i> আপনার উইশলিস্ট</h3>
+        <button class="close-btn" onclick="togglePanel('wishlistPanel')">
+          &times;
+        </button>
+      </div>
+      <div class="panel-content" id="wishlistContent">
+        <p class="empty-msg">আপনার উইশলিস্টে কোনো পণ্য নেই।</p>
+      </div>
+    </aside>
+
+    <aside id="cartPanel" class="side-panel">
+      <div class="panel-header">
+        <h3><i class="fa-solid fa-bag-shopping"></i> শপিং ব্যাগ</h3>
+        <button class="close-btn" onclick="togglePanel('cartPanel')">
+          &times;
+        </button>
+      </div>
+      <div class="panel-content" id="cartContent">
+        <p class="empty-msg">আপনার ব্যাগ বর্তমানে খালি আছে।</p>
+      </div>
+      <div class="panel-footer" id="cartFooter" style="display: none">
+        <div class="total-info">
+          <span>সর্বমোট:</span>
+          <b id="panelTotalAmount">৳০</b>
+        </div>
+        <button class="checkout-btn">চেকআউট করুন</button>
+      </div>
+    </aside>
 
     <section class="hero-slider">
       <div
@@ -76,8 +132,8 @@
           <span class="badge">নতুন কালেকশন ২০২৬</span>
           <h2>আপনার সৌন্দর্যের বিশ্বস্ত সঙ্গী</h2>
           <p>
-            ২০১৮ সাল থেকে আপনাদের সেবায় নিয়োজিত
-            <strong>Beauty Source</strong>। আসল পণ্যের নিশ্চয়তা।
+            ২০১৮ সাল থেকে আপনাদের সেবায় নিয়োজিত <strong>Beauty Source</strong>।
+            আসল পণ্যের নিশ্চয়তা।
           </p>
           <button class="cta-btn">
             Shop Now <i class="fa-solid fa-arrow-right"></i>
@@ -88,15 +144,15 @@
 
     <section class="features-bar">
       <div class="feature-item">
-        <i class="fa-solid fa-truck-fast"></i>
+        <div class="feat-icon"><i class="fa-solid fa-truck-fast"></i></div>
         <span>দ্রুত ডেলিভারি</span>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-shield-heart"></i>
+        <div class="feat-icon"><i class="fa-solid fa-shield-heart"></i></div>
         <span>১০০% অরিজিনাল</span>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-rotate-left"></i>
+        <div class="feat-icon"><i class="fa-solid fa-rotate-left"></i></div>
         <span>সহজ রিটার্ন</span>
       </div>
     </section>
@@ -104,14 +160,14 @@
     <section class="ad-banner-container">
       <div class="ad-card promo-1">
         <div class="ad-content">
-          <span>সীমিত সময়ের অফার</span>
+          <span class="tag">সীমিত সময়ের অফার</span>
           <h3>Get Up to 30% OFF</h3>
-          <p>সব প্রিমিয়াম স্কিনকেয়ার পণ্যে আকর্ষণীয় ছাড়!</p>
+          <p>সব প্রিমিয়াম স্কিনকেয়ার পণ্যে আকর্ষণীয় ছাড়!</p>
         </div>
       </div>
       <div class="ad-card promo-2">
         <div class="ad-content">
-          <span>সারা বাংলাদেশে</span>
+          <span class="tag">সারা বাংলাদেশে</span>
           <h3>Free Home Delivery</h3>
           <p>৳ ২০০০-এর বেশি অর্ডারে ফ্রি ডেলিভারি সুবিধা।</p>
         </div>
@@ -142,13 +198,19 @@
       <div class="footer-top">
         <div class="footer-col">
           <div class="logo white"><span>BEAUTY</span>SOURCE</div>
-          <p>প্রতিষ্ঠাতা: তানজিম আহমেদ উৎস</p>
+          <p>প্রতিষ্ঠাতা: তানজীম আহমেদ উৎস</p>
           <p>স্থাপিত: ২০১৮</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/tanzim.ahmed.utsho/"
-              ><i class="fa-brands fa-facebook"></i
+            <a
+              href="https://www.facebook.com/tanzim.ahmed.utsho/"
+              target="_blank"
+              rel="noreferrer"
+              ><i class="fa-brands fa-facebook-f"></i
             ></a>
-            <a href="https://www.instagram.com/indecisive_utsho/"
+            <a
+              href="https://www.instagram.com/indecisive_utsho/"
+              target="_blank"
+              rel="noreferrer"
               ><i class="fa-brands fa-instagram"></i
             ></a>
             <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -165,15 +227,14 @@
         </div>
         <div class="footer-col">
           <h4>কাস্টমার সাপোর্ট</h4>
-          <p><i class="fa-solid fa-phone"></i> +৮৮০ ১২৩৪ ৫৬৭৮৯০</p>
+          <p><i class="fa-solid fa-phone"></i> +৮৮০ ১৭৫৬ ৪৬৭৬৭০</p>
           <p><i class="fa-solid fa-envelope"></i> support@beautysource.com</p>
         </div>
       </div>
       <div class="footer-bottom">
         <p>
           &copy; 2026 <span class="brand-pink">Beauty</span>
-          <strong>Source</strong>. All rights reserved.
-          <br />
+          <strong>Source</strong>. All rights reserved. <br />
           Designed with ❤️ by <strong>Tanzim Ahmed Utsho</strong>.
         </p>
       </div>

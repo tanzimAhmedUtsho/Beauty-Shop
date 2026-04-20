@@ -5,233 +5,520 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fragrance - Beauty Source</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --gold: #d8a25f;
+        --gold-soft: #f1d4ac;
+        --ink: #142033;
+        --muted: #718096;
+        --white: #ffffff;
+        --line: rgba(20, 32, 51, 0.08);
+        --shadow: 0 18px 46px rgba(20, 32, 51, 0.12);
+      }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Hind Siliguri", sans-serif;
       }
 
       body {
-        background-color: #fcfcfc;
-        color: #333;
+        font-family: "Hind Siliguri", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(216, 162, 95, 0.14), transparent 24%),
+          linear-gradient(180deg, #fffdf9 0%, #fff8ef 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
       .container {
-        max-width: 1200px;
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 0 20px;
       }
 
-      /* Header / Navbar Placeholder */
-      header {
-        background: #fff;
-        padding: 20px 0;
-        border-bottom: 1px solid #eee;
-        text-align: center;
+      .topbar {
+        padding: 24px 0 12px;
       }
 
-      .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: #d63384;
-        text-transform: uppercase;
-        letter-spacing: 2px;
+      .topbar-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
       }
 
-      /* Hero Section */
-      .fragrance-hero {
+      .brand-logo {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.7px;
+      }
+
+      .brand-logo span {
+        color: var(--gold);
+      }
+
+      .brand-note {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      .back-link {
+        padding: 11px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(20, 32, 51, 0.08);
+        font-weight: 600;
+      }
+
+      .hero {
+        padding: 22px 0 30px;
+      }
+
+      .hero-shell {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 24px;
+      }
+
+      .hero-main {
+        min-height: 520px;
+        padding: 52px;
+        border-radius: 36px;
+        color: var(--white);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         background:
-          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url("/image/Fragrance.webp");
+          linear-gradient(120deg, rgba(20, 32, 51, 0.9), rgba(216, 162, 95, 0.26)),
+          url("../image/Fragrance.webp");
         background-size: cover;
         background-position: center;
-        height: 400px;
+        overflow: hidden;
+      }
+
+      .hero-copy-wrap {
+        max-width: 440px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        width: fit-content;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .hero-main h1,
+      .section-head h2 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .hero-main h1 {
+        font-size: clamp(32px, 4.2vw, 48px);
+        line-height: 1.06;
+        letter-spacing: -0.3px;
+        margin-bottom: 18px;
+        max-width: 420px;
+      }
+
+      .hero-main h1 .soft-line,
+      .hero-main h1 .accent-line {
+        display: block;
+      }
+
+      .hero-main h1 .soft-line {
+        font-family: "Hind Siliguri", sans-serif;
+        font-weight: 700;
+      }
+
+      .hero-main h1 .accent-line {
+        font-size: 0.6em;
+        line-height: 1.08;
+        font-weight: 600;
+        letter-spacing: 0.1px;
+        opacity: 0.92;
+        margin: 8px 0 10px;
+      }
+
+      .hero-main p {
+        max-width: 460px;
+        font-size: 15px;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .hero-actions {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        border-radius: 15px;
-        margin: 30px 20px;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
       }
 
-      .hero-content h1 {
-        font-size: 42px;
-        margin-bottom: 15px;
+      .hero-btn {
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 700;
       }
 
-      .hero-content p {
-        font-size: 18px;
-        font-weight: 300;
+      .hero-btn.primary {
+        background: var(--white);
+        color: var(--ink);
       }
 
-      /* Category Section */
-      .section-title {
-        text-align: center;
-        margin: 50px 0 30px;
+      .hero-btn.secondary {
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
       }
 
-      .section-title h2 {
-        font-size: 28px;
-        position: relative;
-        display: inline-block;
-        padding-bottom: 10px;
+      .hero-side {
+        display: grid;
+        gap: 18px;
       }
 
-      .section-title h2::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 3px;
-        background: #ff477e;
+      .side-card {
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .note-card {
+        min-height: 230px;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background:
+          linear-gradient(140deg, rgba(23, 31, 48, 0.9), rgba(216, 162, 95, 0.32)),
+          url("https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=1000");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .note-card h3 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+
+      .note-card p {
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .info-card {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(216, 162, 95, 0.12);
+      }
+
+      .info-card h3 {
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      .info-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 12px;
+        color: var(--muted);
+      }
+
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        margin-top: 7px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+        box-shadow: 0 0 0 6px rgba(216, 162, 95, 0.15);
+      }
+
+      .feature-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .feature-box {
+        padding: 22px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        box-shadow: 0 10px 28px rgba(20, 32, 51, 0.08);
+      }
+
+      .feature-box strong {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .feature-box span {
+        color: var(--muted);
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        margin: 58px 0 24px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(30px, 4vw, 44px);
+        line-height: 1.02;
+        letter-spacing: -0.3px;
+      }
+
+      .section-head p {
+        max-width: 420px;
+        color: var(--muted);
       }
 
       .category-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        margin-bottom: 60px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        padding-bottom: 56px;
       }
 
       .cat-card {
-        background: #fff;
-        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 28px;
         overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: 0.4s;
-        cursor: pointer;
-        text-align: center;
+        border: 1px solid var(--line);
+        box-shadow: 0 14px 34px rgba(20, 32, 51, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .cat-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 42px rgba(20, 32, 51, 0.14);
+      }
+
+      .card-image {
+        height: 360px;
+        overflow: hidden;
       }
 
       .cat-card img {
         width: 100%;
-        height: 350px;
+        height: 100%;
         object-fit: cover;
       }
 
-      .cat-card h3 {
-        padding: 20px;
-        font-size: 22px;
-        color: #444;
+      .card-copy {
+        padding: 22px;
       }
 
-      /* Features Section */
-      .features {
-        display: flex;
-        justify-content: space-around;
-        padding: 40px 0;
-        background: #fff;
-        border-radius: 10px;
-        margin-bottom: 50px;
+      .card-tag {
+        display: inline-block;
+        margin-bottom: 10px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
       }
 
-      .feature-item {
-        text-align: center;
+      .card-copy h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
       }
 
-      .feature-item span {
-        display: block;
-        font-size: 14px;
-        color: #777;
-      }
-
-      .feature-item strong {
-        display: block;
-        font-size: 16px;
-        color: #333;
+      .card-copy p {
+        color: var(--muted);
       }
 
       footer {
+        padding: 34px 0 50px;
+        color: var(--muted);
         text-align: center;
-        padding: 40px;
-        background: #f4f4f4;
-        margin-top: 50px;
       }
 
-      /* Responsive */
-      @media (max-width: 768px) {
-        .hero-content h1 {
-          font-size: 30px;
+      @media (max-width: 980px) {
+        .hero-shell,
+        .feature-strip {
+          grid-template-columns: 1fr;
         }
-        .fragrance-hero {
-          height: 300px;
+
+        .section-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-main {
+          min-height: 430px;
+          padding: 30px;
+          border-radius: 28px;
+        }
+
+        .hero-main h1 {
+          font-size: 30px;
+          max-width: 300px;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="logo">BEAUTY<span style="color: #333">SOURCE</span></div>
-      </div>
-    </header>
-
-    <div class="container">
-      <section class="fragrance-hero">
-        <div class="hero-content">
-          <h1>আপনার পছন্দের সুগন্ধি</h1>
-          <p>সেরা এবং অরিজিনাল পারফিউমের বিশাল কালেকশন</p>
-        </div>
-      </section>
-
-      <div class="features">
-        <div class="feature-item">
-          <strong>দ্রুত ডেলিভারি</strong>
-          <span>সারাদেশে হোম ডেলিভারি</span>
-        </div>
-        <div class="feature-item">
-          <strong>১০০% অরিজিনাল</strong>
-          <span>আসল পণ্যের নিশ্চয়তা</span>
-        </div>
-        <div class="feature-item">
-          <strong>সহজ রিটার্ন</strong>
-          <span>৭ দিনের মধ্যে পরিবর্তন</span>
-        </div>
-      </div>
-
-      <div class="section-title">
-        <h2>ক্যাটাগরি অনুযায়ী দেখুন</h2>
-      </div>
-
-      <div class="category-grid">
-        <div class="cat-card">
-          <img
-            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=600"
-            alt="Men's Fragrance"
-          />
-          <h3>ছেলেদের পারফিউম</h3>
-        </div>
-        <div class="cat-card">
-          <img
-            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600"
-            alt="Women's Fragrance"
-          />
-          <h3>মেয়েদের পারফিউম</h3>
-        </div>
-        <div class="cat-card">
-          <img
-            src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?auto=format&fit=crop&q=80&w=600"
-            alt="Body Mist"
-          />
-          <h3>বডি মিস্ট ও আতর</h3>
-        </div>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <a href="../index.html">
+          <div class="brand-logo">BEAUTY<span>SOURCE</span></div>
+          <div class="brand-note">Signature scents for a refined everyday presence</div>
+        </a>
+        <a href="../index.html" class="back-link">Back to Home</a>
       </div>
     </div>
 
+    <main class="container">
+      <section class="hero">
+        <div class="hero-shell">
+          <div class="hero-main">
+            <div class="hero-copy-wrap">
+              <span class="eyebrow">Luxury Fragrance Edit</span>
+              <h1>
+                <span class="soft-line">Find your</span>
+                <span class="accent-line">signature scent</span>
+                <span class="soft-line">from our</span>
+                <span class="accent-line">premium collection</span>
+              </h1>
+              <p>
+                Warm woody notes, airy florals, and elegant body mist selections
+                come together in a fragrance page designed to feel polished and premium.
+              </p>
+              <div class="hero-actions">
+                <a href="#collections" class="hero-btn primary">Explore Collections</a>
+                <a href="#highlights" class="hero-btn secondary">Why It Feels Luxe</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="side-card note-card">
+              <h3>Layered Scent Story</h3>
+              <p>Fresh openings, soft florals, and deep base notes in one refined edit.</p>
+            </div>
+            <div class="side-card info-card" id="highlights">
+              <h3>Why shoppers love this range</h3>
+              <div class="info-list">
+                <div class="info-item">
+                  <span class="dot"></span>
+                  <p>Daywear থেকে evening vibe পর্যন্ত distinct scent categories</p>
+                </div>
+                <div class="info-item">
+                  <span class="dot"></span>
+                  <p>Elegant presentation with imported-feel product curation</p>
+                </div>
+                <div class="info-item">
+                  <span class="dot"></span>
+                  <p>Gift-friendly picks for him, her, and everyday body mist lovers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-strip">
+          <div class="feature-box">
+            <strong>Fast Delivery</strong>
+            <span>সারাদেশে দ্রুত এবং secure home delivery</span>
+          </div>
+          <div class="feature-box">
+            <strong>100% Original</strong>
+            <span>Authentic fragrance feel with trusted quality promise</span>
+          </div>
+          <div class="feature-box">
+            <strong>Easy Return</strong>
+            <span>Need a switch? Easy replacement support available</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="collections">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" style="color: var(--gold); background: rgba(216, 162, 95, 0.12);">Curated Categories</span>
+            <h2>ক্যাটাগরি অনুযায়ী দেখুন</h2>
+          </div>
+          <p>
+            Fresh masculine blends, elegant feminine scents, আর light wearable body mist
+            দিয়ে complete করা হয়েছে এই fragrance page।
+          </p>
+        </div>
+
+        <div class="category-grid">
+          <article class="cat-card">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=900"
+                alt="Men's Fragrance"
+              />
+            </div>
+            <div class="card-copy">
+              <span class="card-tag">For Him</span>
+              <h3>ছেলেদের পারফিউম</h3>
+              <p>Bold woody and citrus-forward choices for a confident everyday signature.</p>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=900"
+                alt="Women's Fragrance"
+              />
+            </div>
+            <div class="card-copy">
+              <span class="card-tag">For Her</span>
+              <h3>মেয়েদের পারফিউম</h3>
+              <p>Soft florals, powdery musks, and elegant sweetness for polished presence.</p>
+            </div>
+          </article>
+
+          <article class="cat-card">
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?auto=format&fit=crop&q=80&w=900"
+                alt="Body Mist"
+              />
+            </div>
+            <div class="card-copy">
+              <span class="card-tag">Light & Fresh</span>
+              <h3>বডি মিস্ট ও আতর</h3>
+              <p>Refreshing daily-wear options that stay airy, clean, and effortlessly stylish.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
     <footer>
-      <p>&copy; 2026 BeautySource | All Rights Reserved</p>
+      <p>&copy; 2026 BeautySource | Premium fragrance picks for every mood.</p>
     </footer>
   </body>
 </html>

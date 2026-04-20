@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clearance Sale - BeautySource</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -14,263 +14,472 @@
     />
     <style>
       :root {
-        --accent: #ff477e;
-        --dark: #1d3557;
-        --bg-light: #f8f9fa;
+        --accent: #ff4f87;
+        --accent-deep: #e33871;
+        --dark: #16233a;
+        --mint: #24b47e;
+        --bg-light: #fff8fb;
+        --line: rgba(22, 35, 58, 0.08);
+        --white: #ffffff;
+        --muted: #6c7a92;
+        --shadow: 0 18px 44px rgba(22, 35, 58, 0.12);
       }
+
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: "Hind Siliguri", sans-serif;
       }
+
       body {
-        background-color: var(--bg-light);
+        font-family: "Hind Siliguri", sans-serif;
+        background:
+          radial-gradient(circle at top right, rgba(255, 79, 135, 0.16), transparent 24%),
+          linear-gradient(180deg, #fffdfd 0%, #fff3f8 100%);
+        color: var(--dark);
       }
+
       .container {
-        max-width: 1200px;
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 20px;
       }
 
-      /* Header & Timer */
-      .clearance-header {
-        background: var(--dark);
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-        border-radius: 0 0 50px 50px;
-        margin-bottom: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      .page-top {
+        padding: 22px 0 12px;
       }
-      .clearance-header h1 {
-        font-size: 36px;
-        margin-bottom: 15px;
-        letter-spacing: 1px;
-      }
-      .timer {
+
+      .page-top-inner {
         display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 25px;
-      }
-      .time-box {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 15px;
-        border-radius: 12px;
-        min-width: 85px;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-      .time-box span {
-        font-size: 24px;
-        font-weight: bold;
-        display: block;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
       }
 
-      /* Surprise Scratch Section */
-      .surprise-section {
-        margin-bottom: 40px;
+      .logo {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.7px;
+      }
+
+      .logo span {
+        color: var(--accent);
+      }
+
+      .logo-note {
+        margin-top: 4px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .back-link {
+        text-decoration: none;
+        color: var(--dark);
+        padding: 11px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(22, 35, 58, 0.08);
+        font-weight: 600;
+      }
+
+      .hero {
+        padding: 22px 0 30px;
+      }
+
+      .hero-box {
+        padding: 54px 44px;
+        border-radius: 38px;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        background:
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, rgba(22, 35, 58, 0.96), rgba(255, 79, 135, 0.86));
+      }
+
+      .hero-copy {
+        max-width: 720px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        backdrop-filter: blur(10px);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .hero-box h1,
+      .section-head h2 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .hero-box h1 {
+        font-size: clamp(44px, 6vw, 74px);
+        line-height: 0.95;
+        margin-bottom: 16px;
+      }
+
+      .hero-box p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 620px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 22px;
+        margin-top: 28px;
+      }
+
+      .hero-card {
+        padding: 22px;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .timer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 16px;
+      }
+
+      .time-box {
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 16px;
         text-align: center;
       }
-      .scratch-card {
-        background: linear-gradient(135deg, #ff477e, #ff80b0);
-        padding: 30px;
-        border-radius: 20px;
-        color: white;
-        box-shadow: 0 10px 25px rgba(255, 71, 126, 0.3);
-      }
-      .reveal-box {
-        background: #fff;
-        color: #ff477e;
-        display: inline-block;
-        margin-top: 15px;
-        padding: 15px 40px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 20px;
-        cursor: pointer;
-        border: 2px dashed #ff477e;
-        transition: 0.5s;
-      }
-      .reveal-box:hover {
-        background: #1d3557;
-        color: #fff;
-        transform: scale(1.1);
-        border-color: #fff;
+
+      .time-box span {
+        display: block;
+        font-size: 28px;
+        font-weight: 800;
+        margin-bottom: 4px;
       }
 
-      /* Main Layout */
+      .reveal-box {
+        margin-top: 16px;
+        padding: 18px 24px;
+        border-radius: 20px;
+        background: var(--white);
+        color: var(--accent);
+        text-align: center;
+        font-weight: 800;
+        cursor: pointer;
+        border: 2px dashed rgba(255, 79, 135, 0.4);
+        transition: 0.3s ease;
+      }
+
+      .reveal-box:hover {
+        transform: translateY(-2px);
+      }
+
       .main-content {
         display: grid;
-        grid-template-columns: 3fr 1fr;
-        gap: 30px;
+        grid-template-columns: 1fr 360px;
+        gap: 26px;
+        padding-bottom: 56px;
       }
 
-      /* Product Card Styles */
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        margin: 8px 0 24px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(36px, 5vw, 56px);
+        line-height: 0.95;
+      }
+
+      .section-head p {
+        max-width: 420px;
+        color: var(--muted);
+      }
+
       .sale-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 22px;
       }
+
       .product-card {
-        background: white;
-        border-radius: 20px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        padding: 18px;
+        box-shadow: 0 14px 34px rgba(22, 35, 58, 0.08);
         position: relative;
-        transition: 0.3s ease;
-        border: 1px solid #eee;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
+
       .product-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 42px rgba(22, 35, 58, 0.14);
       }
+
       .discount-tag {
         position: absolute;
-        top: 15px;
-        left: 15px;
-        background: var(--accent);
-        color: white;
-        padding: 4px 12px;
-        border-radius: 30px;
-        font-size: 13px;
-        font-weight: bold;
+        top: 16px;
+        left: 16px;
         z-index: 2;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), #ff92b6);
+        color: var(--white);
+        font-size: 12px;
+        font-weight: 700;
       }
-      .product-card img {
+
+      .product-visual {
+        height: 220px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, #fff3f7 0%, #fff 100%);
+        padding: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+      }
+
+      .product-visual img {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: contain;
-        margin-bottom: 15px;
       }
+
+      .product-card h3 {
+        font-size: 20px;
+        line-height: 1.35;
+        margin-bottom: 12px;
+      }
+
+      .product-note {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .price {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
       .price .new {
         color: var(--accent);
-        font-weight: 700;
-        font-size: 20px;
+        font-weight: 800;
+        font-size: 24px;
       }
+
       .price .old {
         text-decoration: line-through;
-        color: #bbb;
-        margin-right: 8px;
-        font-size: 15px;
+        color: #98a2b3;
+        font-size: 14px;
       }
 
       .btn-add {
-        background: var(--dark);
-        color: white;
-        border: none;
-        padding: 12px;
         width: 100%;
-        border-radius: 30px;
+        border: none;
+        border-radius: 999px;
+        padding: 14px 16px;
+        background: linear-gradient(135deg, var(--dark), #2b3c5e);
+        color: var(--white);
         cursor: pointer;
-        margin-top: 15px;
-        font-weight: 600;
+        font-weight: 700;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 8px;
-        transition: 0.3s;
-      }
-      .btn-add:hover {
-        background: var(--accent);
+        transition: 0.3s ease;
       }
 
-      /* Cart Sidebar */
+      .btn-add:hover {
+        background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      }
+
       .cart-sidebar {
-        background: white;
-        padding: 25px;
-        border-radius: 25px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        background: rgba(255, 255, 255, 0.96);
+        padding: 24px;
+        border-radius: 30px;
+        box-shadow: var(--shadow);
         height: fit-content;
         position: sticky;
-        top: 25px;
-        border: 1px solid #f0f0f0;
+        top: 24px;
+        border: 1px solid var(--line);
       }
+
+      .cart-sidebar h3 {
+        font-size: 24px;
+        margin-bottom: 18px;
+      }
+
       .cart-item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px dashed #eee;
-      }
-      .remove-btn {
-        color: #ff4d4d;
-        cursor: pointer;
-      }
-      .total-box {
-        margin-top: 20px;
-        font-weight: bold;
-        font-size: 20px;
-        display: flex;
-        justify-content: space-between;
-        border-top: 2px solid var(--dark);
-        padding-top: 15px;
-      }
-      .checkout-btn {
-        background: #27ae60;
-        color: white;
-        border: none;
-        width: 100%;
-        padding: 14px;
-        margin-top: 20px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-weight: bold;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px dashed rgba(22, 35, 58, 0.12);
       }
 
-      @media (max-width: 900px) {
+      .cart-item-info strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .cart-item-info span {
+        color: var(--muted);
+      }
+
+      .remove-btn {
+        color: #ff5a5f;
+        cursor: pointer;
+      }
+
+      .empty-cart {
+        color: var(--muted);
+        text-align: center;
+        padding: 18px 0;
+      }
+
+      .total-box {
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 2px solid var(--dark);
+        display: flex;
+        justify-content: space-between;
+        font-weight: 800;
+        font-size: 20px;
+      }
+
+      .checkout-btn {
+        margin-top: 20px;
+        width: 100%;
+        border: none;
+        border-radius: 18px;
+        padding: 15px;
+        background: linear-gradient(135deg, var(--mint), #1f9d6f);
+        color: var(--white);
+        cursor: pointer;
+        font-weight: 800;
+      }
+
+      @media (max-width: 980px) {
+        .hero-grid,
         .main-content {
           grid-template-columns: 1fr;
         }
+
+        .section-head {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         .cart-sidebar {
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          z-index: 100;
-          border-radius: 25px 25px 0 0;
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page-top-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-box {
+          padding: 30px 24px;
+          border-radius: 28px;
+        }
+
+        .timer {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
     </style>
   </head>
   <body>
-    <section class="clearance-header">
+    <div class="page-top">
+      <div class="container page-top-inner">
+        <div>
+          <div class="logo">BEAUTY<span>SOURCE</span></div>
+          <div class="logo-note">High-energy deals with a more premium storefront feel</div>
+        </div>
+        <a href="../index.html" class="back-link">Back to Home</a>
+      </div>
+    </div>
+
+    <section class="hero">
       <div class="container">
-        <h1><i class="fa-solid fa-bolt"></i> ক্লিয়ারেন্স সেল - ধামাকা অফার</h1>
-        <p>সেরা কসমেটিকস পণ্যে অবিশ্বাস্য ছাড়!</p>
-        <div class="timer">
-          <div class="time-box"><span id="days">00</span>দিন</div>
-          <div class="time-box"><span id="hours">23</span>ঘণ্টা</div>
-          <div class="time-box"><span id="mins">59</span>মিনিট</div>
-          <div class="time-box"><span id="secs">59</span>সেকেন্ড</div>
+        <div class="hero-box">
+          <div class="hero-copy">
+            <span class="eyebrow"><i class="fa-solid fa-bolt"></i>&nbsp; Flash Clearance Event</span>
+            <h1>ক্লিয়ারেন্স সেল, এখন আরও premium shopping vibe-এ</h1>
+            <p>
+              Limited-time discount, gift-style promo reveal, আর smoother product browsing
+              দিয়ে clearance page-টাকে আরও polished এবং exciting করা হয়েছে।
+            </p>
+          </div>
+
+          <div class="hero-grid">
+            <div class="hero-card">
+              <strong>Offer Countdown</strong>
+              <div class="timer">
+                <div class="time-box"><span id="days">00</span>দিন</div>
+                <div class="time-box"><span id="hours">23</span>ঘণ্টা</div>
+                <div class="time-box"><span id="mins">59</span>মিনিট</div>
+                <div class="time-box"><span id="secs">59</span>সেকেন্ড</div>
+              </div>
+            </div>
+
+            <div class="hero-card">
+              <strong>গোপন ডিসকাউন্ট কোড</strong>
+              <p style="margin-top: 8px; color: rgba(255,255,255,0.85);">
+                নিচের box-এ hover বা click করে আপনার bonus promo code দেখুন।
+              </p>
+              <div class="reveal-box" onmouseover="revealCode()" onclick="revealCode()">
+                <span id="secret-text">কোড দেখতে এখানে চাপুন</span>
+                <span id="promo-code" style="display: none;">BEAUTY50OFF</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="container">
-      <section class="surprise-section">
-        <div class="scratch-card">
-          <h3>🎁 আপনার জন্য একটি গোপন উপহার!</h3>
-          <p>নিচের বক্সে মাউস নিয়ে যান বা ক্লিক করে ডিসকাউন্ট কোডটি দেখুন</p>
-          <div class="reveal-box" onmouseover="revealCode()">
-            <span id="secret-text">কোড দেখতে এখানে আনুন</span>
-            <span id="promo-code" style="display: none">BEAUTY50OFF</span>
-          </div>
-        </div>
-      </section>
-
       <div class="main-content">
-        <div class="sale-grid" id="product-list"></div>
+        <section>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow" style="background: rgba(255, 79, 135, 0.12); color: var(--accent);">Best Deal Picks</span>
+              <h2>Sale Products</h2>
+            </div>
+            <p>
+              Best-value skincare and beauty essentials এখন clearance pricing-এ,
+              সুন্দর card layout আর faster shopping flow সহ।
+            </p>
+          </div>
 
-        <div class="cart-sidebar">
+          <div class="sale-grid" id="product-list"></div>
+        </section>
+
+        <aside class="cart-sidebar">
           <h3><i class="fa-solid fa-basket-shopping"></i> আপনার ব্যাগ</h3>
           <div id="cart-items">
-            <p style="color: #999; text-align: center; padding: 20px">
-              ব্যাগ খালি আছে
-            </p>
+            <p class="empty-cart">ব্যাগ খালি আছে</p>
           </div>
           <div class="total-box">
             <span>মোট:</span>
@@ -279,7 +488,7 @@
           <button class="checkout-btn" onclick="processOrder()">
             অর্ডার সম্পন্ন করুন
           </button>
-        </div>
+        </aside>
       </div>
     </div>
 
@@ -291,23 +500,26 @@
           oldPrice: 1500,
           price: 750,
           discount: "50%",
-          img: "/image/নাইট ক্রিম - প্রিমিয়াম.webp",
+          img: "../image/নাইট ক্রিম - প্রিমিয়াম.webp",
+          note: "Overnight nourishment with rich moisture support.",
         },
         {
           id: 2,
-          name: "ফেস সিরাম - গ্লোয়িং",
+          name: "ফেস সিরাম - গ্লোয়িং",
           oldPrice: 1200,
           price: 720,
           discount: "40%",
-          img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300",
+          img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600",
+          note: "Daily glow support with a lightweight premium feel.",
         },
         {
           id: 3,
-          name: "বডি লোশন - ময়েশ্চার",
+          name: "বডি লোশন - ময়েশ্চার",
           oldPrice: 800,
           price: 560,
           discount: "30%",
-          img: "https://images.unsplash.com/photo-1552046122-03184de85e08?w=300",
+          img: "https://images.unsplash.com/photo-1552046122-03184de85e08?w=600",
+          note: "Soft skin comfort with a non-greasy finish.",
         },
         {
           id: 4,
@@ -315,15 +527,17 @@
           oldPrice: 900,
           price: 630,
           discount: "30%",
-          img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300",
+          img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600",
+          note: "Everyday protection with light and wearable texture.",
         },
         {
           id: 5,
-          name: "ফেস ওয়াশ - ওগানিক",
+          name: "ফেস ওয়াশ - ওগানিক",
           oldPrice: 500,
           price: 350,
           discount: "30%",
-          img: "/image/ফেস ওয়াশ - ওগানিক.jpg",
+          img: "../image/ফেস ওয়াশ - ওগানিক.jpg",
+          note: "Fresh cleansing for a cleaner and calmer skin feel.",
         },
         {
           id: 6,
@@ -331,7 +545,8 @@
           oldPrice: 300,
           price: 150,
           discount: "50%",
-          img: "/image/লিপ বাম - স্ট্রবেরি.webp",
+          img: "../image/লিপ বাম - স্ট্রবেরি.webp",
+          note: "Pocket-friendly hydration with a sweet glossy touch.",
         },
       ];
 
@@ -342,18 +557,21 @@
         list.innerHTML = products
           .map(
             (p) => `
-                <div class="product-card">
-                    <div class="discount-tag">${p.discount} ছাড়</div>
-                    <img src="${p.img}" alt="${p.name}">
-                    <h3>${p.name}</h3>
-                    <div class="price">
-                        <span class="old">৳${p.oldPrice}</span>
-                        <span class="new">৳${p.price}</span>
-                    </div>
-                    <button class="btn-add" onclick="addToCart(${p.id})">
-                        <i class="fa-solid fa-plus"></i> ব্যাগ এ যোগ করুন
-                    </button>
+              <article class="product-card">
+                <div class="discount-tag">${p.discount} ছাড়</div>
+                <div class="product-visual">
+                  <img src="${p.img}" alt="${p.name}">
                 </div>
+                <h3>${p.name}</h3>
+                <p class="product-note">${p.note}</p>
+                <div class="price">
+                  <span class="old">৳${p.oldPrice}</span>
+                  <span class="new">৳${p.price}</span>
+                </div>
+                <button class="btn-add" onclick="addToCart(${p.id})">
+                  <i class="fa-solid fa-plus"></i> ব্যাগে যোগ করুন
+                </button>
+              </article>
             `,
           )
           .join("");
@@ -361,6 +579,7 @@
 
       function addToCart(id) {
         const product = products.find((p) => p.id === id);
+        if (!product) return;
         cart.push(product);
         updateCart();
       }
@@ -373,21 +592,25 @@
       function updateCart() {
         const cartDiv = document.getElementById("cart-items");
         const totalDiv = document.getElementById("total-price");
+
         if (cart.length === 0) {
-          cartDiv.innerHTML =
-            '<p style="color: #999; text-align: center; padding: 20px;">ব্যাগ খালি আছে</p>';
+          cartDiv.innerHTML = '<p class="empty-cart">ব্যাগ খালি আছে</p>';
         } else {
           cartDiv.innerHTML = cart
             .map(
               (item, index) => `
-                    <div class="cart-item">
-                        <div class="cart-item-info"><strong>${item.name}</strong><br><span>৳${item.price}</span></div>
-                        <i class="fa-solid fa-trash-can remove-btn" onclick="removeFromCart(${index})"></i>
-                    </div>
-                `,
+                <div class="cart-item">
+                  <div class="cart-item-info">
+                    <strong>${item.name}</strong>
+                    <span>৳${item.price}</span>
+                  </div>
+                  <i class="fa-solid fa-trash-can remove-btn" onclick="removeFromCart(${index})"></i>
+                </div>
+              `,
             )
             .join("");
         }
+
         totalDiv.innerText = cart.reduce((sum, item) => sum + item.price, 0);
       }
 
@@ -397,9 +620,11 @@
       }
 
       function startTimer() {
-        let h = 23,
-          m = 59,
-          s = 59;
+        let d = 0;
+        let h = 23;
+        let m = 59;
+        let s = 59;
+
         setInterval(() => {
           s--;
           if (s < 0) {
@@ -410,6 +635,12 @@
             m = 59;
             h--;
           }
+          if (h < 0) {
+            h = 23;
+            d = Math.max(0, d - 1);
+          }
+
+          document.getElementById("days").innerText = d < 10 ? "0" + d : d;
           document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
           document.getElementById("mins").innerText = m < 10 ? "0" + m : m;
           document.getElementById("secs").innerText = s < 10 ? "0" + s : s;
@@ -417,15 +648,18 @@
       }
 
       function processOrder() {
-        if (cart.length === 0) alert("আপনার ব্যাগ খালি!");
-        else {
-          alert("ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।");
-          cart = [];
-          updateCart();
+        if (cart.length === 0) {
+          alert("আপনার ব্যাগ খালি!");
+          return;
         }
+
+        alert("ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।");
+        cart = [];
+        updateCart();
       }
 
       displayProducts();
+      updateCart();
       startTimer();
     </script>
   </body>

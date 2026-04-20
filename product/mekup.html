@@ -1,267 +1,646 @@
 <!doctype html>
-<html lang="bn">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Makeup Collection - BeautySource</title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --primary-color: #ff477e;
-        --dark-color: #333;
-        --bg-light: #f9f9f9;
+        --rose: #ff4f87;
+        --rose-deep: #e53873;
+        --ink: #1f2a44;
+        --soft-ink: #667085;
+        --paper: #fffaf8;
+        --white: #ffffff;
+        --line: rgba(31, 42, 68, 0.08);
+        --shadow: 0 18px 45px rgba(31, 42, 68, 0.12);
       }
 
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
-        font-family: "Hind Siliguri", sans-serif;
       }
 
       body {
-        background-color: var(--bg-light);
+        font-family: "Hind Siliguri", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(255, 79, 135, 0.12), transparent 28%),
+          linear-gradient(180deg, #fffdfc 0%, #fff7fa 100%);
+        color: var(--ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
       }
 
       .container {
-        max-width: 1200px;
+        width: min(1240px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 0 20px;
       }
 
-      /* Top Ad Banner */
-      .promo-banner {
-        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-        padding: 40px;
-        text-align: center;
-        border-radius: 15px;
-        margin: 20px 0;
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      .topbar {
+        padding: 22px 0 10px;
       }
 
-      .promo-banner h2 {
-        font-size: 32px;
-        margin-bottom: 10px;
-        color: #444;
-      }
-      .promo-banner p {
-        font-size: 18px;
-        color: #666;
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
       }
 
-      /* Secondary Ads Section */
-      .ad-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-
-      .ad-box {
-        height: 180px;
-        border-radius: 12px;
+      .brand {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        padding-left: 30px;
-        color: white;
+        gap: 4px;
+      }
+
+      .brand-logo {
+        font-size: 30px;
+        font-weight: 800;
+        letter-spacing: -0.8px;
+        color: var(--ink);
+      }
+
+      .brand-logo span {
+        color: var(--rose);
+      }
+
+      .brand-note {
+        font-size: 13px;
+        color: var(--soft-ink);
+      }
+
+      .back-link {
+        padding: 11px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.85);
+        border: 1px solid var(--line);
+        box-shadow: 0 8px 24px rgba(31, 42, 68, 0.08);
+        font-weight: 600;
+      }
+
+      .hero {
+        padding: 26px 0 34px;
+      }
+
+      .hero-shell {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 24px;
+        align-items: stretch;
+      }
+
+      .hero-main {
+        min-height: 510px;
+        border-radius: 36px;
+        padding: 48px;
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        background:
+          linear-gradient(120deg, rgba(23, 30, 51, 0.88), rgba(255, 79, 135, 0.36)),
+          url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1400");
         background-size: cover;
         background-position: center;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
       }
 
-      .ad-1 {
-        background-image:
-          linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent),
-          url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=600");
-      }
-      .ad-2 {
-        background-image:
-          linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent),
-          url("https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=600");
+      .hero-main::after {
+        content: "";
+        position: absolute;
+        inset: auto -90px -120px auto;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        filter: blur(4px);
       }
 
-      /* Product Grid */
-      .section-title {
-        margin: 40px 0 20px;
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.16);
+        backdrop-filter: blur(8px);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 18px;
+      }
+
+      .hero-main h1,
+      .section-title h2 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .hero-main h1 {
+        font-size: clamp(34px, 4.8vw, 56px);
+        line-height: 1.02;
+        margin-bottom: 18px;
+        max-width: 500px;
+      }
+
+      .hero-main p {
+        max-width: 520px;
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .hero-btn {
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        border: 1px solid transparent;
+      }
+
+      .hero-btn.primary {
+        background: var(--white);
+        color: var(--ink);
+      }
+
+      .hero-btn.secondary {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        border-color: rgba(255, 255, 255, 0.26);
+      }
+
+      .hero-side {
+        display: grid;
+        gap: 18px;
+      }
+
+      .side-card {
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: var(--shadow);
+      }
+
+      .trend-card {
+        background:
+          linear-gradient(135deg, rgba(255, 79, 135, 0.96), rgba(255, 139, 176, 0.84)),
+          url("https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=900");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        min-height: 246px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      .trend-card h3 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .trend-card p {
+        max-width: 260px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .benefit-card {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(255, 79, 135, 0.08);
+      }
+
+      .benefit-card h3 {
         font-size: 24px;
-        border-left: 5px solid var(--primary-color);
-        padding-left: 15px;
+        margin-bottom: 18px;
+      }
+
+      .benefits {
+        display: grid;
+        gap: 14px;
+      }
+
+      .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--soft-ink);
+      }
+
+      .benefit-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-top: 7px;
+        background: linear-gradient(135deg, var(--rose), #ff9ab9);
+        box-shadow: 0 0 0 6px rgba(255, 79, 135, 0.12);
+      }
+
+      .feature-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 22px;
+      }
+
+      .feature-box {
+        border-radius: 24px;
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--line);
+        box-shadow: 0 10px 28px rgba(31, 42, 68, 0.08);
+      }
+
+      .feature-box strong {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+
+      .feature-box span {
+        color: var(--soft-ink);
+      }
+
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 18px;
+        margin: 56px 0 24px;
+      }
+
+      .section-title h2 {
+        font-size: clamp(36px, 5vw, 54px);
+        line-height: 0.95;
+      }
+
+      .section-title p {
+        max-width: 420px;
+        color: var(--soft-ink);
       }
 
       .product-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 24px;
+        padding-bottom: 50px;
       }
 
       .product-card {
-        background: #fff;
-        border-radius: 12px;
-        padding: 15px;
-        text-align: center;
-        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(31, 42, 68, 0.08);
+        border-radius: 28px;
+        padding: 18px;
         position: relative;
-        border: 1px solid #eee;
+        overflow: hidden;
+        box-shadow: 0 14px 34px rgba(31, 42, 68, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
       .product-card:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 18px 42px rgba(31, 42, 68, 0.14);
       }
 
       .badge {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        background: var(--primary-color);
-        color: white;
-        padding: 2px 10px;
-        border-radius: 5px;
+        top: 16px;
+        left: 16px;
+        z-index: 2;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--rose), #ff88ad);
+        color: var(--white);
         font-size: 12px;
+        font-weight: 700;
       }
 
-      .product-card img {
+      .product-visual {
+        height: 240px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, #fff7fa 0%, #fff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px;
+        margin-bottom: 18px;
+      }
+
+      .product-visual img {
         width: 100%;
-        height: 200px;
+        height: 100%;
         object-fit: contain;
-        margin-bottom: 15px;
+      }
+
+      .product-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .product-tag {
+        font-size: 12px;
+        color: var(--soft-ink);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .star {
+        font-size: 13px;
+        color: #f59e0b;
+        font-weight: 700;
       }
 
       .product-card h3 {
-        font-size: 18px;
-        color: #444;
-        margin-bottom: 10px;
-        height: 45px;
-        overflow: hidden;
+        font-size: 19px;
+        line-height: 1.35;
+        margin-bottom: 12px;
+        min-height: 52px;
+      }
+
+      .product-copy {
+        font-size: 14px;
+        color: var(--soft-ink);
+        margin-bottom: 18px;
       }
 
       .price-tag {
-        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 18px;
       }
 
       .old-price {
         text-decoration: line-through;
-        color: #999;
+        color: #98a2b3;
         font-size: 14px;
-        margin-right: 10px;
       }
 
       .new-price {
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: 18px;
+        color: var(--rose);
+        font-weight: 800;
+        font-size: 24px;
       }
 
       .buy-btn {
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 8px 20px;
-        border-radius: 20px;
-        cursor: pointer;
         width: 100%;
-        font-weight: 600;
+        border: none;
+        border-radius: 999px;
+        padding: 14px 16px;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--ink), #35415f);
+        color: var(--white);
+        cursor: pointer;
+        transition: 0.3s ease;
       }
 
       .buy-btn:hover {
-        background: #e03e6f;
+        background: linear-gradient(135deg, var(--rose), var(--rose-deep));
       }
 
-      @media (max-width: 768px) {
-        .ad-grid {
+      @media (max-width: 980px) {
+        .hero-shell,
+        .feature-strip,
+        .section-title {
           grid-template-columns: 1fr;
+        }
+
+        .hero-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .section-title {
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .topbar-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hero-main {
+          min-height: 430px;
+          padding: 28px;
+          border-radius: 28px;
+        }
+
+        .hero-side,
+        .feature-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .feature-strip {
+          display: grid;
+        }
+
+        .section-title h2 {
+          font-size: 40px;
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="promo-banner">
-        <h2>মেকআপ ধামাকা অফার!</h2>
-        <p>সব প্রিমিয়াম ব্র্যান্ডের মেকআপ আইটেমে পাচ্ছেন ৩০% পর্যন্ত ছাড়।</p>
-      </div>
-
-      <div class="ad-grid">
-        <div class="ad-box ad-1">
-          <h3>লিপস্টিক কালেকশন</h3>
-          <p>বাই ১ গেট ১ ফ্রি</p>
-        </div>
-        <div class="ad-box ad-2">
-          <h3>ফাউন্ডেশন স্পেশাল</h3>
-          <p>ফ্রি বিউটি ব্লেন্ডার</p>
-        </div>
-      </div>
-
-      <h2 class="section-title">সব মেকআপ প্রোডাক্ট</h2>
-
-      <div class="product-grid">
-        <div class="product-card">
-          <span class="badge">১০% ছাড়</span>
-          <img
-            src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=300"
-            alt="Matte Lipstick"
-          />
-          <h3>ম্যাট লিকুইড লিপস্টিক - রেড শেড</h3>
-          <div class="price-tag">
-            <span class="old-price">৳৯৫০</span>
-            <span class="new-price">৳৮৫০</span>
-          </div>
-          <button class="buy-btn">ব্যাগ এ যোগ করুন</button>
-        </div>
-
-        <div class="product-card">
-          <span class="badge">নতুন</span>
-          <img
-            src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&q=80&w=300"
-            alt="Face Powder"
-          />
-          <h3>প্রিমিয়াম ফেস পাউডার - অরিজিনাল</h3>
-          <div class="price-tag">
-            <span class="old-price">৳১২০০</span>
-            <span class="new-price">৳১০৫০</span>
-          </div>
-          <button class="buy-btn">ব্যাগ এ যোগ করুন</button>
-        </div>
-
-        <div class="product-card">
-          <span class="badge">১৫% ছাড়</span>
-          <img src="/image/ওয়াটারপ্রুফ মাসকারা - ব্ল্যাক.webp" alt="Mascara" />
-          <h3>ওয়াটারপ্রুফ মাসকারা - ব্ল্যাক</h3>
-          <div class="price-tag">
-            <span class="old-price">৳৭৫০</span>
-            <span class="new-price">৳৬৫০</span>
-          </div>
-          <button class="buy-btn">ব্যাগ এ যোগ করুন</button>
-        </div>
-
-        <div class="product-card">
-          <span class="badge">অফার</span>
-          <img
-            src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=300"
-            alt="Eyeshadow"
-          />
-          <h3>আইশ্যাডো প্যালেট - ১২ কালার</h3>
-          <div class="price-tag">
-            <span class="old-price">৳১৮০০</span>
-            <span class="new-price">৳১৫৫০</span>
-          </div>
-          <button class="buy-btn">ব্যাগ এ যোগ করুন</button>
-        </div>
-
-        <div class="product-card">
-          <img src="/image/লিকুইড আইলাইনার - ম্যাট ফিনিশ.jpg" alt="Eyeliner" />
-          <h3>লিকুইড আইলাইনার - ম্যাট ফিনিশ</h3>
-          <div class="price-tag">
-            <span class="old-price">৳৪৫০</span>
-            <span class="new-price">৳৩৮০</span>
-          </div>
-          <button class="buy-btn">ব্যাগ এ যোগ করুন</button>
-        </div>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <a href="../index.html" class="brand">
+          <div class="brand-logo">BEAUTY<span>SOURCE</span></div>
+          <div class="brand-note">Luxury makeup picks for everyday glam</div>
+        </a>
+        <a href="../index.html" class="back-link">Back to Home</a>
       </div>
     </div>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-shell">
+          <div class="hero-main">
+            <span class="eyebrow">Editor's Makeup Edit 2026</span>
+            <h1>From soft glam to bold looks, a curated collection for every mood</h1>
+            <p>
+              Premium textures, flattering shades, and camera-ready finishes come
+              together in a makeup selection designed to deliver a polished, luxe beauty vibe.
+            </p>
+            <div class="hero-actions">
+              <a href="#products" class="hero-btn primary">Shop Collection</a>
+              <a href="#highlights" class="hero-btn secondary">See Highlights</a>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="side-card trend-card">
+              <h3>New Season Glow</h3>
+              <p>Matte lips, soft-focus skin, and statement eyes in one edit.</p>
+            </div>
+            <div class="side-card benefit-card" id="highlights">
+              <h3>Why this page feels premium</h3>
+              <div class="benefits">
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  <p>Imported-style shades with clean, modern presentation</p>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  <p>Giftable picks for bridal glam, party wear, and daily use</p>
+                </div>
+                <div class="benefit-item">
+                  <span class="benefit-dot"></span>
+                  <p>Fast-delivery ready collection with standout offer pricing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-strip">
+          <div class="feature-box">
+            <strong>30% Off</strong>
+            <span>Selected premium makeup drops this week</span>
+          </div>
+          <div class="feature-box">
+            <strong>Top Rated</strong>
+            <span>Most-loved textures and long-stay formulas</span>
+          </div>
+          <div class="feature-box">
+            <strong>Curated Look</strong>
+            <span>Handpicked pieces to build a complete glam kit</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="products">
+        <div class="section-title">
+          <div>
+            <span class="eyebrow" style="color: var(--rose); background: rgba(255, 79, 135, 0.1);">Curated Collection</span>
+            <h2>All Makeup Products</h2>
+          </div>
+          <p>
+            Classic reds, velvety powders, rich pigments, and effortless daily-use
+            essentials come together in this refined makeup selection.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <span class="badge">10% Off</span>
+            <div class="product-visual">
+              <img
+                src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&q=80&w=500"
+                alt="Matte Lipstick"
+              />
+            </div>
+            <div class="product-meta">
+              <span class="product-tag">Lip Edit</span>
+              <span class="star">4.9 ★</span>
+            </div>
+            <h3>Matte Liquid Lipstick - Red Shade</h3>
+            <p class="product-copy">Silky matte finish with bold payoff and smooth wear.</p>
+            <div class="price-tag">
+              <span class="old-price">৳950</span>
+              <span class="new-price">৳850</span>
+            </div>
+            <button class="buy-btn">Add to Bag</button>
+          </article>
+
+          <article class="product-card">
+            <span class="badge">New</span>
+            <div class="product-visual">
+              <img
+                src="https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&q=80&w=500"
+                alt="Face Powder"
+              />
+            </div>
+            <div class="product-meta">
+              <span class="product-tag">Base Makeup</span>
+              <span class="star">4.8 ★</span>
+            </div>
+            <h3>Premium Face Powder - Original</h3>
+            <p class="product-copy">Soft-focus coverage for a refined and polished skin finish.</p>
+            <div class="price-tag">
+              <span class="old-price">৳1200</span>
+              <span class="new-price">৳1050</span>
+            </div>
+            <button class="buy-btn">Add to Bag</button>
+          </article>
+
+          <article class="product-card">
+            <span class="badge">15% Off</span>
+            <div class="product-visual">
+              <img
+                src="../image/ওয়াটারপ্রুফ মাসকারা - ব্ল্যাক.webp"
+                alt="Mascara"
+              />
+            </div>
+            <div class="product-meta">
+              <span class="product-tag">Eye Focus</span>
+              <span class="star">4.7 ★</span>
+            </div>
+            <h3>Waterproof Mascara - Black</h3>
+            <p class="product-copy">Smudge-resistant volume with defined lash lift all day.</p>
+            <div class="price-tag">
+              <span class="old-price">৳750</span>
+              <span class="new-price">৳650</span>
+            </div>
+            <button class="buy-btn">Add to Bag</button>
+          </article>
+
+          <article class="product-card">
+            <span class="badge">Offer</span>
+            <div class="product-visual">
+              <img
+                src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&q=80&w=500"
+                alt="Eyeshadow"
+              />
+            </div>
+            <div class="product-meta">
+              <span class="product-tag">Palette</span>
+              <span class="star">4.9 ★</span>
+            </div>
+            <h3>Eyeshadow Palette - 12 Colors</h3>
+            <p class="product-copy">A luxe mix of matte and shimmer tones for day-to-night looks.</p>
+            <div class="price-tag">
+              <span class="old-price">৳1800</span>
+              <span class="new-price">৳1550</span>
+            </div>
+            <button class="buy-btn">Add to Bag</button>
+          </article>
+
+          <article class="product-card">
+            <span class="badge">Best Pick</span>
+            <div class="product-visual">
+              <img
+                src="../image/লিকুইড আইলাইনার - ম্যাট ফিনিশ.jpg"
+                alt="Eyeliner"
+              />
+            </div>
+            <div class="product-meta">
+              <span class="product-tag">Precision Line</span>
+              <span class="star">4.8 ★</span>
+            </div>
+            <h3>Liquid Eyeliner - Matte Finish</h3>
+            <p class="product-copy">Sharp glide, deep pigment, and effortless control for clean definition.</p>
+            <div class="price-tag">
+              <span class="old-price">৳450</span>
+              <span class="new-price">৳380</span>
+            </div>
+            <button class="buy-btn">Add to Bag</button>
+          </article>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
