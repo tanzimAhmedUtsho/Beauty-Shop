@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beauty Source | তানজিম আহমেদ উৎসব</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="top-nav">
+        <div class="logo">BEAUTY<span>SOURCE</span></div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="productSearch"
+            placeholder="Search for products (e.g. Serum, Cream)..."
+          />
+          <button><i class="fa fa-search"></i></button>
+        </div>
+        <div class="user-actions">
+          <div class="action-item">
+            <i class="fa-regular fa-heart"></i><span>Wishlist</span>
+          </div>
+          <div class="action-item">
+            <i class="fa-regular fa-user"></i><span>Login</span>
+          </div>
+          <div class="cart-btn action-item">
+            <i class="fa fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+            <span>Bag</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="category-nav">
+        <ul>
+          <li><a href="#">Makeup</a></li>
+          <li><a href="#">Skin</a></li>
+          <li><a href="#">Hair</a></li>
+          <li><a href="#">Personal Care</a></li>
+          <li><a href="#">Fragrance</a></li>
+          <li class="sale"><a href="#">Clearance Sale</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero-slider">
+      <div
+        class="slide active"
+        style="
+          background-image: url(&quot;https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200&quot;);
+        "
+      >
+        <div class="slide-content">
+          <h2>ঈদ ধামাকা অফার!</h2>
+          <p>
+            ২০১৮ সাল থেকে আপনাদের সেবায় নিয়োজিত <strong>Beauty Source</strong>
+          </p>
+          <button class="cta-btn">Shop Now</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="ad-banner-container">
+      <div class="ad-card promo-1">
+        <div class="ad-content">
+          <span>Limited Offer</span>
+          <h3>Get Up to 30% OFF</h3>
+          <p>On all Skin Care products</p>
+        </div>
+      </div>
+      <div class="ad-card promo-2">
+        <div class="ad-content">
+          <span>New Arrival</span>
+          <h3>Free Delivery</h3>
+          <p>On orders above ৳ 2000</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <div class="section-header">
+        <h2>Deals You Cannot Miss</h2>
+        <p>সেরা ব্র্যান্ডের সেরা সব অফার</p>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h3>Beauty Source</h3>
+          <p>প্রতিষ্ঠাতা: তানজীম আহমেদ উৎস</p>
+          <p>স্থাপিত: ২০১৮</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Beauty Source. Designed with ❤️ by Tanzim Ahmed Utsho.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
