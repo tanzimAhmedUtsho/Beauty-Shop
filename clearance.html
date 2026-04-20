@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clearance Sale - BeautySource</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --accent: #ff477e;
+        --dark: #1d3557;
+        --bg-light: #f8f9fa;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+      body {
+        background-color: var(--bg-light);
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header & Timer */
+      .clearance-header {
+        background: var(--dark);
+        color: white;
+        padding: 60px 20px;
+        text-align: center;
+        border-radius: 0 0 50px 50px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+      .clearance-header h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+      }
+      .timer {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 25px;
+      }
+      .time-box {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px;
+        border-radius: 12px;
+        min-width: 85px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .time-box span {
+        font-size: 24px;
+        font-weight: bold;
+        display: block;
+      }
+
+      /* Surprise Scratch Section */
+      .surprise-section {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+      .scratch-card {
+        background: linear-gradient(135deg, #ff477e, #ff80b0);
+        padding: 30px;
+        border-radius: 20px;
+        color: white;
+        box-shadow: 0 10px 25px rgba(255, 71, 126, 0.3);
+      }
+      .reveal-box {
+        background: #fff;
+        color: #ff477e;
+        display: inline-block;
+        margin-top: 15px;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        border: 2px dashed #ff477e;
+        transition: 0.5s;
+      }
+      .reveal-box:hover {
+        background: #1d3557;
+        color: #fff;
+        transform: scale(1.1);
+        border-color: #fff;
+      }
+
+      /* Main Layout */
+      .main-content {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 30px;
+      }
+
+      /* Product Card Styles */
+      .sale-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 25px;
+      }
+      .product-card {
+        background: white;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        position: relative;
+        transition: 0.3s ease;
+        border: 1px solid #eee;
+      }
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      .discount-tag {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--accent);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: bold;
+        z-index: 2;
+      }
+      .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 15px;
+      }
+      .price .new {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .price .old {
+        text-decoration: line-through;
+        color: #bbb;
+        margin-right: 8px;
+        font-size: 15px;
+      }
+
+      .btn-add {
+        background: var(--dark);
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 15px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: 0.3s;
+      }
+      .btn-add:hover {
+        background: var(--accent);
+      }
+
+      /* Cart Sidebar */
+      .cart-sidebar {
+        background: white;
+        padding: 25px;
+        border-radius: 25px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        height: fit-content;
+        position: sticky;
+        top: 25px;
+        border: 1px solid #f0f0f0;
+      }
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+      }
+      .remove-btn {
+        color: #ff4d4d;
+        cursor: pointer;
+      }
+      .total-box {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-top: 2px solid var(--dark);
+        padding-top: 15px;
+      }
+      .checkout-btn {
+        background: #27ae60;
+        color: white;
+        border: none;
+        width: 100%;
+        padding: 14px;
+        margin-top: 20px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      @media (max-width: 900px) {
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+        .cart-sidebar {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          z-index: 100;
+          border-radius: 25px 25px 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="clearance-header">
+      <div class="container">
+        <h1><i class="fa-solid fa-bolt"></i> ক্লিয়ারেন্স সেল - ধামাকা অফার</h1>
+        <p>সেরা কসমেটিকস পণ্যে অবিশ্বাস্য ছাড়!</p>
+        <div class="timer">
+          <div class="time-box"><span id="days">00</span>দিন</div>
+          <div class="time-box"><span id="hours">23</span>ঘণ্টা</div>
+          <div class="time-box"><span id="mins">59</span>মিনিট</div>
+          <div class="time-box"><span id="secs">59</span>সেকেন্ড</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="surprise-section">
+        <div class="scratch-card">
+          <h3>🎁 আপনার জন্য একটি গোপন উপহার!</h3>
+          <p>নিচের বক্সে মাউস নিয়ে যান বা ক্লিক করে ডিসকাউন্ট কোডটি দেখুন</p>
+          <div class="reveal-box" onmouseover="revealCode()">
+            <span id="secret-text">কোড দেখতে এখানে আনুন</span>
+            <span id="promo-code" style="display: none">BEAUTY50OFF</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="main-content">
+        <div class="sale-grid" id="product-list"></div>
+
+        <div class="cart-sidebar">
+          <h3><i class="fa-solid fa-basket-shopping"></i> আপনার ব্যাগ</h3>
+          <div id="cart-items">
+            <p style="color: #999; text-align: center; padding: 20px">
+              ব্যাগ খালি আছে
+            </p>
+          </div>
+          <div class="total-box">
+            <span>মোট:</span>
+            <span>৳<span id="total-price">0</span></span>
+          </div>
+          <button class="checkout-btn" onclick="processOrder()">
+            অর্ডার সম্পন্ন করুন
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "নাইট ক্রিম - প্রিমিয়াম",
+          oldPrice: 1500,
+          price: 750,
+          discount: "50%",
+          img: "/image/নাইট ক্রিম - প্রিমিয়াম.webp",
+        },
+        {
+          id: 2,
+          name: "ফেস সিরাম - গ্লোয়িং",
+          oldPrice: 1200,
+          price: 720,
+          discount: "40%",
+          img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300",
+        },
+        {
+          id: 3,
+          name: "বডি লোশন - ময়েশ্চার",
+          oldPrice: 800,
+          price: 560,
+          discount: "30%",
+          img: "https://images.unsplash.com/photo-1552046122-03184de85e08?w=300",
+        },
+        {
+          id: 4,
+          name: "সানস্ক্রিন - SPF 50",
+          oldPrice: 900,
+          price: 630,
+          discount: "30%",
+          img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300",
+        },
+        {
+          id: 5,
+          name: "ফেস ওয়াশ - ওগানিক",
+          oldPrice: 500,
+          price: 350,
+          discount: "30%",
+          img: "/image/ফেস ওয়াশ - ওগানিক.jpg",
+        },
+        {
+          id: 6,
+          name: "লিপ বাম - স্ট্রবেরি",
+          oldPrice: 300,
+          price: 150,
+          discount: "50%",
+          img: "/image/লিপ বাম - স্ট্রবেরি.webp",
+        },
+      ];
+
+      let cart = [];
+
+      function displayProducts() {
+        const list = document.getElementById("product-list");
+        list.innerHTML = products
+          .map(
+            (p) => `
+                <div class="product-card">
+                    <div class="discount-tag">${p.discount} ছাড়</div>
+                    <img src="${p.img}" alt="${p.name}">
+                    <h3>${p.name}</h3>
+                    <div class="price">
+                        <span class="old">৳${p.oldPrice}</span>
+                        <span class="new">৳${p.price}</span>
+                    </div>
+                    <button class="btn-add" onclick="addToCart(${p.id})">
+                        <i class="fa-solid fa-plus"></i> ব্যাগ এ যোগ করুন
+                    </button>
+                </div>
+            `,
+          )
+          .join("");
+      }
+
+      function addToCart(id) {
+        const product = products.find((p) => p.id === id);
+        cart.push(product);
+        updateCart();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartDiv = document.getElementById("cart-items");
+        const totalDiv = document.getElementById("total-price");
+        if (cart.length === 0) {
+          cartDiv.innerHTML =
+            '<p style="color: #999; text-align: center; padding: 20px;">ব্যাগ খালি আছে</p>';
+        } else {
+          cartDiv.innerHTML = cart
+            .map(
+              (item, index) => `
+                    <div class="cart-item">
+                        <div class="cart-item-info"><strong>${item.name}</strong><br><span>৳${item.price}</span></div>
+                        <i class="fa-solid fa-trash-can remove-btn" onclick="removeFromCart(${index})"></i>
+                    </div>
+                `,
+            )
+            .join("");
+        }
+        totalDiv.innerText = cart.reduce((sum, item) => sum + item.price, 0);
+      }
+
+      function revealCode() {
+        document.getElementById("secret-text").style.display = "none";
+        document.getElementById("promo-code").style.display = "block";
+      }
+
+      function startTimer() {
+        let h = 23,
+          m = 59,
+          s = 59;
+        setInterval(() => {
+          s--;
+          if (s < 0) {
+            s = 59;
+            m--;
+          }
+          if (m < 0) {
+            m = 59;
+            h--;
+          }
+          document.getElementById("hours").innerText = h < 10 ? "0" + h : h;
+          document.getElementById("mins").innerText = m < 10 ? "0" + m : m;
+          document.getElementById("secs").innerText = s < 10 ? "0" + s : s;
+        }, 1000);
+      }
+
+      function processOrder() {
+        if (cart.length === 0) alert("আপনার ব্যাগ খালি!");
+        else {
+          alert("ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।");
+          cart = [];
+          updateCart();
+        }
+      }
+
+      displayProducts();
+      startTimer();
+    </script>
+  </body>
+</html>
