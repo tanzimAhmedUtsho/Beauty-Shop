@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - BeautySource</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="login-wrapper">
+      <div class="login-card">
+        <div class="login-branding">
+          <div class="branding-overlay">
+            <h3>BEAUTY<span>SOURCE</span></h3>
+            <p>আপনার সৌন্দর্যের বিশ্বস্ত সঙ্গী</p>
+          </div>
+        </div>
+
+        <div class="login-content">
+          <h2>স্বাগতম!</h2>
+          <p class="subtitle">আপনার অ্যাকাউন্টে লগইন করুন</p>
+
+          <form id="loginForm">
+            <div class="input-group">
+              <label for="email">ইমেইল ঠিকানা</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" id="email" placeholder="example@mail.com" />
+              </div>
+              <div id="emailError" class="error-msg">সঠিক ইমেইল ঠিকানা দিন</div>
+            </div>
+
+            <div class="input-group">
+              <label for="password">পাসওয়ার্ড</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="password" placeholder="••••••••" />
+                <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
+              </div>
+              <div id="passError" class="error-msg">
+                পাসওয়ার্ড অন্তত ৬ অক্ষরের হতে হবে
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label><input type="checkbox" /> মনে রাখুন</label>
+              <a href="#" class="forgot-pass">পাসওয়ার্ড ভুলে গেছেন?</a>
+            </div>
+
+            <button type="submit" class="login-btn">লগইন করুন</button>
+          </form>
+
+          <div class="social-divider">
+            <span>অথবা সোশ্যাল মিডিয়া দিয়ে</span>
+          </div>
+
+          <div class="social-login">
+            <button class="social-btn google">
+              <i class="fa-brands fa-google"></i>
+              <span>Google</span>
+            </button>
+            <button class="social-btn facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+              <span>Facebook</span>
+            </button>
+          </div>
+
+          <p class="footer-text">
+            অ্যাকাউন্ট নেই? <a href="#">নতুন তৈরি করুন</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="login.js"></script>
+  </body>
+</html>
