@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fragrance - Beauty Source</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Hind Siliguri", sans-serif;
+      }
+
+      body {
+        background-color: #fcfcfc;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header / Navbar Placeholder */
+      header {
+        background: #fff;
+        padding: 20px 0;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #d63384;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      /* Hero Section */
+      .fragrance-hero {
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("/image/Fragrance.webp");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        border-radius: 15px;
+        margin: 30px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 42px;
+        margin-bottom: 15px;
+      }
+
+      .hero-content p {
+        font-size: 18px;
+        font-weight: 300;
+      }
+
+      /* Category Section */
+      .section-title {
+        text-align: center;
+        margin: 50px 0 30px;
+      }
+
+      .section-title h2 {
+        font-size: 28px;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 10px;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 3px;
+        background: #ff477e;
+      }
+
+      .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 60px;
+      }
+
+      .cat-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: 0.4s;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .cat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .cat-card img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+      }
+
+      .cat-card h3 {
+        padding: 20px;
+        font-size: 22px;
+        color: #444;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 40px 0;
+        background: #fff;
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
+
+      .feature-item {
+        text-align: center;
+      }
+
+      .feature-item span {
+        display: block;
+        font-size: 14px;
+        color: #777;
+      }
+
+      .feature-item strong {
+        display: block;
+        font-size: 16px;
+        color: #333;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px;
+        background: #f4f4f4;
+        margin-top: 50px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 30px;
+        }
+        .fragrance-hero {
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">BEAUTY<span style="color: #333">SOURCE</span></div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="fragrance-hero">
+        <div class="hero-content">
+          <h1>আপনার পছন্দের সুগন্ধি</h1>
+          <p>সেরা এবং অরিজিনাল পারফিউমের বিশাল কালেকশন</p>
+        </div>
+      </section>
+
+      <div class="features">
+        <div class="feature-item">
+          <strong>দ্রুত ডেলিভারি</strong>
+          <span>সারাদেশে হোম ডেলিভারি</span>
+        </div>
+        <div class="feature-item">
+          <strong>১০০% অরিজিনাল</strong>
+          <span>আসল পণ্যের নিশ্চয়তা</span>
+        </div>
+        <div class="feature-item">
+          <strong>সহজ রিটার্ন</strong>
+          <span>৭ দিনের মধ্যে পরিবর্তন</span>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <h2>ক্যাটাগরি অনুযায়ী দেখুন</h2>
+      </div>
+
+      <div class="category-grid">
+        <div class="cat-card">
+          <img
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=600"
+            alt="Men's Fragrance"
+          />
+          <h3>ছেলেদের পারফিউম</h3>
+        </div>
+        <div class="cat-card">
+          <img
+            src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=600"
+            alt="Women's Fragrance"
+          />
+          <h3>মেয়েদের পারফিউম</h3>
+        </div>
+        <div class="cat-card">
+          <img
+            src="https://images.unsplash.com/photo-1557170334-a9632e77c6e4?auto=format&fit=crop&q=80&w=600"
+            alt="Body Mist"
+          />
+          <h3>বডি মিস্ট ও আতর</h3>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 BeautySource | All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
