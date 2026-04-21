@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>দ্রুত ডেলিভারি - Beauty Source</title>
+    <link rel="stylesheet" href="firstDelivery.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Poppins:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="delivery-header">
+      <nav class="nav-container">
+        <a href="../index.html" class="back-link"
+          ><i class="fa-solid fa-arrow-left"></i> হোমপেজে ফিরুন</a
+        >
+        <div class="logo">BEAUTY<span>SOURCE</span></div>
+      </nav>
+    </header>
+
+    <main class="delivery-main">
+      <section class="hero-section">
+        <div class="hero-badge">Express Service</div>
+        <h1>সারা বাংলাদেশে দ্রুততম ডেলিভারি</h1>
+        <p>
+          আপনার পছন্দের কসমেটিকস এখন পৌঁছাবে আপনার হাতে আরও দ্রুত এবং নিরাপদে।
+        </p>
+      </section>
+
+      <section class="delivery-cards">
+        <div class="card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>ঢাকা সিটিতে ২৪ ঘণ্টা</h3>
+          <p>
+            ঢাকা সিটির ভেতর আমরা দিচ্ছি সুপার ফাস্ট ২৪ ঘণ্টা ডেলিভারি সুবিধা।
+          </p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-truck-ramp-box"></i>
+          <h3>ঢাকার বাইরে ৪৮-৭২ ঘণ্টা</h3>
+          <p>সারা বাংলাদেশের যেকোনো প্রান্তে ৩ দিনের মধ্যে নিশ্চিত ডেলিভারি।</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-shield-check"></i>
+          <h3>নিরাপদ প্যাকেজিং</h3>
+          <p>
+            আপনার পণ্য যাতে ক্ষতিগ্রস্ত না হয়, তাই আমরা ব্যবহার করি প্রিমিয়াম
+            বাবল র‍্যাপ।
+          </p>
+        </div>
+      </section>
+
+      <section class="check-delivery">
+        <div class="checker-container">
+          <h2>আপনার এলাকায় ডেলিভারি সময় চেক করুন</h2>
+          <div class="input-group">
+            <select id="locationSelect">
+              <option value="">আপনার এলাকা নির্বাচন করুন</option>
+              <option value="dhaka">ঢাকা (Dhaka City)</option>
+              <option value="dhaka-sub">ঢাকা উপশহর (Savar, Gazipur)</option>
+              <option value="outside">ঢাকার বাইরে (Outside Dhaka)</option>
+            </select>
+            <button onclick="estimateDelivery()">সময় দেখুন</button>
+          </div>
+          <div id="result" class="result-box"></div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2>সাধারণ কিছু প্রশ্ন (FAQ)</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>ডেলিভারি চার্জ কত?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                ঢাকা সিটির জন্য ডেলিভারি চার্জ ৬০ টাকা এবং ঢাকার বাইরে সারা
+                বাংলাদেশে ১৫০ টাকা।
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>আমি কি পণ্য দেখে রিসিভ করতে পারব?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                জি, অবশ্যই। ডেলিভারি ম্যান থাকা অবস্থায় আপনি পণ্যটি চেক করে দেখে
+                নেওয়ার সুযোগ পাবেন।
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="delivery-footer">
+      <p>&copy; 2026 Beauty Source. All rights reserved.</p>
+    </footer>
+
+    <script src="firstDelivery.js"></script>
+  </body>
+</html>
