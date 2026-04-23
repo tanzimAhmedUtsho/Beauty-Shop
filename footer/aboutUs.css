@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  max-width: 1300px; /* কন্টেন্ট বেশি হওয়ায় উইডথ একটু বাড়ানো হয়েছে */
+  max-width: 1300px;
   margin: 0 auto;
   padding: 50px 20px;
 }
@@ -42,7 +42,7 @@ body {
 /* মেইন লেআউট: ৩ কলাম গ্রিড */
 .about-flex-container {
   display: grid;
-  grid-template-columns: 250px 1fr 250px; /* ডানে ও বামে নির্দিষ্ট জায়গা */
+  grid-template-columns: 250px 1fr 250px;
   gap: 30px;
   align-items: start;
 }
@@ -162,41 +162,124 @@ body {
   text-transform: uppercase;
 }
 
-/* নিচের টেস্টমোনিয়াল সেকশন */
+/* --- মডার্ন টেস্টমোনিয়াল সেকশন --- */
 .testimonials-section {
-  margin-top: 60px;
-  padding: 40px;
-  background: white;
-  border-radius: 20px;
+  margin-top: 80px;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f7ff 100%);
+  border-radius: 30px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+}
+
+.testi-badge {
+  display: inline-block;
+  background: rgba(255, 77, 141, 0.1);
+  color: #ff4d8d;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 15px;
 }
 
 .testimonials-section h2 {
-  margin-bottom: 30px;
+  font-size: 30px;
   color: #1a2e4d;
+  margin-bottom: 40px;
 }
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
 
 .t-card {
-  padding: 25px;
-  background: #fdfdfd;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   border: 1px solid #f0f0f0;
-  border-radius: 12px;
-  font-style: italic;
-  font-size: 14px;
-  color: #555;
-  transition: 0.3s;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .t-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   border-color: #ff4d8d;
+  box-shadow: 0 20px 40px rgba(26, 46, 77, 0.1);
+}
+
+.t-card.featured {
+  border-top: 4px solid #ff4d8d;
+}
+
+.stars {
+  color: #ffc107;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.t-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-style: normal; /* মডার্ন লুকে ইটালিকের চেয়ে নরমাল ভালো লাগে */
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-img {
+  width: 45px;
+  height: 45px;
+  background: #1a2e4d;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user-details h4 {
+  font-size: 16px;
+  color: #1a2e4d;
+  margin: 0;
+}
+
+.user-details span {
+  font-size: 12px;
+  color: #888;
+}
+
+/* কোট আইকন ইফেক্ট */
+.t-card::after {
+  content: "\f10d";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 40px;
+  color: #f0f0f0;
+  z-index: 0;
+}
+
+.t-card p,
+.stars,
+.user-info {
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive */
@@ -206,5 +289,8 @@ body {
   }
   .side-content {
     height: auto;
+  }
+  .testimonial-grid {
+    grid-template-columns: 1fr;
   }
 }
