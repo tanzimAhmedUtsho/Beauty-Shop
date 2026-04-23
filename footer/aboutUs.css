@@ -1,0 +1,129 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.about-header h1 {
+  font-size: 36px;
+  color: #1a2e4d; /* Navy Blue */
+}
+
+.about-header h1 span {
+  color: #ff4d8d; /* Pink */
+}
+
+.about-header p {
+  color: #777;
+  font-style: italic;
+}
+
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  color: #1a2e4d;
+  margin-bottom: 20px;
+  border-left: 5px solid #ff4d8d;
+  padding-left: 15px;
+}
+
+.about-text p {
+  margin-bottom: 25px;
+  font-size: 17px;
+  color: #555;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #1a2e4d;
+}
+
+.feature-item i {
+  color: #ff4d8d;
+  font-size: 20px;
+}
+
+.founder-card {
+  flex: 0.8;
+  background: #1a2e4d;
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  border-bottom: 8px solid #ff4d8d;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.founder-info h3 {
+  color: #ff4d8d;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.founder-info strong {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.founder-info span {
+  font-size: 14px;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.bio {
+  font-size: 15px;
+  line-height: 1.8;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+  }
+}
