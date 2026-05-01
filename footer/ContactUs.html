@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Beauty Source</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Hind Siliguri", sans-serif;
+        scroll-behavior: smooth;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .gradient-text {
+        background: linear-gradient(135deg, #1a2c42 30%, #e91e63 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .input-focus {
+        transition: all 0.3s ease;
+      }
+      .input-focus:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -10px rgba(233, 30, 99, 0.3);
+      }
+    </style>
+  </head>
+  <body class="bg-[#fcfcfc] text-slate-900">
+    <!-- Floating Back to Home Button -->
+    <nav class="fixed top-6 left-6 z-50">
+      <a
+        href="index.html"
+        class="glass-card flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-slate-700 shadow-sm hover:shadow-md hover:border-[#e91e63] hover:text-[#e91e63] transition-all duration-300 group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 transition-transform group-hover:-translate-x-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+          />
+        </svg>
+        হোমে ফিরে যান
+      </a>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-16 text-center px-4">
+      <span
+        class="text-[#e91e63] font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
+        >Get In Touch</span
+      >
+      <h1 class="text-4xl md:text-6xl font-bold gradient-text mb-6">
+        আমাদের সাথে যোগাযোগ করুন
+      </h1>
+      <p class="text-gray-500 max-w-xl mx-auto leading-relaxed text-lg">
+        আপনার সৌন্দর্য যাত্রায় আমরা সাথে আছি। যেকোনো প্রয়োজনে মেসেজ দিন, আমরা
+        <b>২৪ ঘণ্টার</b> মধ্যে আপনার কাছে ফিরে আসব।
+      </p>
+    </header>
+
+    <main class="container mx-auto px-6 pb-32 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <!-- Contact Form (7 Cols) -->
+        <div
+          class="lg:col-span-7 bg-white p-10 md:p-14 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.02)] border border-gray-50"
+        >
+          <form action="#" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-slate-400 uppercase ml-1"
+                  >আপনার নাম</label
+                >
+                <input
+                  type="text"
+                  placeholder="তানজীম আহমেদ"
+                  class="input-focus w-full px-6 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 outline-none focus:border-[#e91e63] focus:bg-white transition-all"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-slate-400 uppercase ml-1"
+                  >ইমেইল ঠিকানা</label
+                >
+                <input
+                  type="email"
+                  placeholder="hello@website.com"
+                  class="input-focus w-full px-6 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 outline-none focus:border-[#e91e63] focus:bg-white transition-all"
+                />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-400 uppercase ml-1"
+                >বিষয়</label
+              >
+              <input
+                type="text"
+                placeholder="কি বিষয়ে জানতে চান?"
+                class="input-focus w-full px-6 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 outline-none focus:border-[#e91e63] focus:bg-white transition-all"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-slate-400 uppercase ml-1"
+                >মেসেজ</label
+              >
+              <textarea
+                rows="5"
+                placeholder="আপনার বিস্তারিত এখানে লিখুন..."
+                class="input-focus w-full px-6 py-4 rounded-2xl border border-gray-100 bg-gray-50/50 outline-none focus:border-[#e91e63] focus:bg-white transition-all"
+              ></textarea>
+            </div>
+            <button
+              class="w-full bg-[#1a2c42] text-white py-5 rounded-2xl font-bold text-lg hover:bg-[#e91e63] transition-all duration-500 shadow-xl shadow-blue-900/10 hover:shadow-[#e91e63]/20 active:scale-[0.98]"
+            >
+              মেসেজ পাঠান
+            </button>
+          </form>
+        </div>
+
+        <!-- Info & Map (5 Cols) -->
+        <div class="lg:col-span-5 space-y-10">
+          <div class="space-y-6">
+            <div
+              class="group p-8 bg-white rounded-[32px] border border-gray-50 shadow-sm hover:shadow-md transition-all"
+            >
+              <p
+                class="text-[10px] font-black text-[#e91e63] uppercase tracking-widest mb-3"
+              >
+                Email Support
+              </p>
+              <p
+                class="text-xl font-semibold text-slate-800 group-hover:text-[#e91e63] transition-colors"
+              >
+                support@beautysource.com
+              </p>
+            </div>
+
+            <div
+              class="group p-8 bg-white rounded-[32px] border border-gray-100 shadow-sm hover:shadow-md transition-all border-l-4 border-l-[#e91e63]"
+            >
+              <p
+                class="text-[10px] font-black text-[#e91e63] uppercase tracking-widest mb-3"
+              >
+                Direct Call
+              </p>
+              <p class="text-xl font-semibold text-slate-800">
+                +৮৮০ ১৭৫৬ ৪৬৭৬৭০
+              </p>
+            </div>
+
+            <div
+              class="p-8 bg-white rounded-[32px] border border-gray-50 shadow-sm"
+            >
+              <p
+                class="text-[10px] font-black text-[#e91e63] uppercase tracking-widest mb-3"
+              >
+                Headquarters
+              </p>
+              <p class="text-lg font-medium text-slate-600">
+                ঝিনাইদহ সদর, খুলনা বিভাগ, বাংলাদেশ।
+              </p>
+            </div>
+          </div>
+
+          <!-- Map Container -->
+          <div
+            class="w-full h-80 rounded-[40px] overflow-hidden shadow-2xl shadow-gray-200/50 border-4 border-white grayscale hover:grayscale-0 transition-all duration-1000"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58732.18683515024!2d89.15574345!3d23.54107145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fee2960655844f%3A0xc549884e18374240!2sJhenaidah!5e0!3m2!1sen!2sbd!4v1714545000000!5m2!1sen!2sbd"
+              width="100%"
+              height="100%"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <!-- Socials -->
+          <div class="flex items-center gap-6 px-4">
+            <span
+              class="text-xs font-bold text-slate-400 uppercase tracking-widest"
+              >Follow us:</span
+            >
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-sm border border-gray-100 hover:text-[#e91e63] hover:border-[#e91e63] transition-all"
+                >Ig</a
+              >
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-sm border border-gray-100 hover:text-[#e91e63] hover:border-[#e91e63] transition-all"
+                >Fb</a
+              >
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-sm border border-gray-100 hover:text-[#e91e63] hover:border-[#e91e63] transition-all"
+                >Tw</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Live Chat Floating Action -->
+    <div class="fixed bottom-10 right-10 z-50">
+      <button
+        class="bg-[#e91e63] text-white p-1 rounded-full shadow-[0_20px_40px_rgba(233,30,99,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-4 pl-2 pr-8 group"
+      >
+        <div
+          class="w-12 h-12 bg-white rounded-full flex items-center justify-center"
+        >
+          <span class="w-3 h-3 bg-[#e91e63] rounded-full animate-ping"></span>
+        </div>
+        <div class="text-left">
+          <p class="text-[10px] font-bold uppercase opacity-80 leading-none">
+            Online
+          </p>
+          <p class="font-bold text-sm">লাইভ চ্যাট</p>
+        </div>
+      </button>
+    </div>
+
+    <footer class="py-16 border-t border-gray-100 text-center">
+      <p class="text-slate-400 text-sm font-medium">
+        © 2026 <span class="text-slate-800 font-bold">Beauty Source</span>.
+        Crafted with precision by
+        <span class="text-[#e91e63]">Tanzim Ahmed Utsho</span>
+      </p>
+    </footer>
+  </body>
+</html>
